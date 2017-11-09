@@ -4,9 +4,10 @@ namespace softuni\model;
 
 use softuni\core\Model;
 use softuni\core\queries\QueryInterface;
-use softuni\core\services\UserServiceInterface;
+use softuni\core\repositories\UserRepository;
+use softuni\DatabaseConnection\ResultSetInterface;
 
-class User extends Model implements UserServiceInterface
+class User extends Model implements UserRepository
 {
     /**
      * @var int $id
@@ -19,19 +20,19 @@ class User extends Model implements UserServiceInterface
     public $username;
 
     /**
-     * @var string $email
-     */
-    public $email;
-
-    /**
      * @var string $first_name
      */
     public $first_name;
 
     /**
-     * @var string $last_name
+     * @var string $password
      */
-    public $last_name;
+    public $password;
+
+    /**
+     * @var string $re_password
+     */
+    public $re_password;
 
     public static function findAll(): array
     {
@@ -40,7 +41,7 @@ class User extends Model implements UserServiceInterface
 
     /**
      * @param int $id
-     * @return boolean|Model
+     * @return boolean|User
      */
     public static function findByID(int $id)
     {
@@ -49,7 +50,7 @@ class User extends Model implements UserServiceInterface
 
     /**
      * @param string $username
-     * @return bool|Model
+     * @return bool|User
      */
     public static function findOneByUsername(string $username)
     {
@@ -61,33 +62,77 @@ class User extends Model implements UserServiceInterface
         return new \softuni\core\queries\UserQuery(get_called_class());
     }
 
-    public function register(Model $user, $confirmPassword): bool
+    public function update(User $user): bool
     {
 
     }
 
-    public function login(string $username, string $password): bool
+    public function create(User $user): bool
+    {
+        $sql = 'INSERT INTO 
+                user (first_name, username, password, re_password) 
+                VALUES (:first_name, :username, :password, :re_password)';
+
+        $params = [
+            ':first_name'  => $user->getFirstName(),
+            ':username'    => $user->getUsername(),
+            ':password'    => $user->getPassword(),
+            ':re_password' => $user->getRePassword()
+        ];
+
+        $query = $this->getDb()
+                      ->query($sql)
+                      ->execute($params);
+
+        if ($query instanceof ResultSetInterface) {
+            return true;
+        }
+        return false;
+    }
+
+    public function delete(User $user): bool
     {
 
     }
 
-    public function editProfile(int $id, Model $user): bool
-    {
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
-    public function viewAll(): \Generator
+    /**
+     * @return string
+     */
+    public function getUsername(): string
     {
-
+        return $this->username;
     }
 
-    public function isLogged(): bool
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
     {
-
+        return $this->first_name;
     }
 
-    public function getCurrentUser(): Model
+    /**
+     * @return string
+     */
+    public function getPassword(): string
     {
+        return $this->password;
+    }
 
+    /**
+     * @return string
+     */
+    public function getRePassword(): string
+    {
+        return $this->re_password;
     }
 }

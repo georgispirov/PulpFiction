@@ -3,6 +3,7 @@
 namespace softuni\core;
 
 use ReflectionClass;
+use softuni\core\HttpHandler\HttpInterface;
 use softuni\DatabaseConnection\Database;
 
 class Application
@@ -68,7 +69,7 @@ class Application
         $fullPath = '\\softuni\\controller\\' . ucfirst($controller);
         if (file_exists($file_name)) {
             $className = (new ReflectionClass($fullPath))->getName();
-            $this->controller = new $className(Database::getConnection());
+            $this->controller = new $className();
         }
     }
 

@@ -3,7 +3,9 @@
       "psr-4": {
           "softuni\\DatabaseConnection\\": "DatabaseConnection/",
           "softuni\\core\\": "core/",
-          "softuni\\model\\": "model"
+          "softuni\\model\\": "model",
+          "softuni\\controller\\": "controller",
+          "softuni\\core\\service\\": "core/service"
       }
   }
 }

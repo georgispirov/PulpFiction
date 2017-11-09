@@ -2,11 +2,20 @@
 
 namespace softuni\core;
 
+use ReflectionClass;
 use softuni\core\queries\QueryInterface;
+use softuni\DatabaseConnection\DatabaseInterface;
 
 abstract class Model
 {
-	abstract public static function find(): QueryInterface;
+    protected function getDb()
+    {
+        if (Application::getDb() instanceof DatabaseInterface) {
+            return Application::getDb();
+        }
+    }
+
+    abstract public static function find(): QueryInterface;
 
 	abstract public static function findAll(): array;
 
@@ -32,5 +41,20 @@ abstract class Model
         $className = self::className();
         $exploded = explode('\\', $className);
         return strtolower(end($exploded));
+    }
+
+    public function loadData(array $post)
+    {
+        $class = new ReflectionClass(get_called_class());
+        $className = $class->getName();
+        $model = new $className();
+        foreach ($post as $name => $value) {
+            if ($class->hasProperty($name)) {
+                $property = $class->getProperty($name);
+                $property->setAccessible(true);
+                $property->setValue($model, $value);
+            }
+        }
+        return $model;
     }
 }
