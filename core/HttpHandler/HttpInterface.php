@@ -16,4 +16,6 @@ interface HttpInterface
     public function isPostRequest(): bool;
 
     public function isGetRequest(): bool;
+
+    public function isPostAjaxRequest(): bool;
 }

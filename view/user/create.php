@@ -2,9 +2,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Create User</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/user.js"></script>
     </head>
     <body>
-        <form action="/users/register" method="POST">
+        <form action="/users/create" id="create-user-form" method="POST" onsubmit="event.preventDefault();">
             <label for="username">Username: </label>
             <input type="text" name="username" id="username"> <br/>
 
@@ -12,12 +14,12 @@
             <input type="text" name="first_name" id="first_name"> <br/>
 
             <label for="password">Password: </label>
-            <input type="text" name="password" id="password"> <br/>
+            <input type="password" name="password" id="password"> <br/>
 
             <label for="re-password">Confirm Password: </label>
-            <input type="text" name="re_password" id="re_password"> <br/>
+            <input type="password" name="re_password" id="re_password"> <br/>
 
-            <input type="submit" value="Register">
+            <input type="submit" name="create-user-button" value="Register">
         </form>
     </body>
 </html>

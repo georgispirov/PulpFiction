@@ -55,4 +55,9 @@ class Request extends HeaderMap implements HttpInterface
     {
         return $_SERVER['REQUEST_METHOD'] === 'GET';
     }
+
+    public function isPostAjaxRequest(): bool
+    {
+        return ($this->isPostRequest() && $this->isAjax());
+    }
 }

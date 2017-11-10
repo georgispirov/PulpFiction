@@ -6,7 +6,7 @@ use softuni\model\User;
 
 interface UserServiceInterface
 {
-    public static function register(User $user, $confirmPassword);
+    public function register(User $user);
 
     public function login(string $username, string $password): bool;
 
@@ -17,4 +17,6 @@ interface UserServiceInterface
     public function isLogged(): bool;
 
     public function getCurrentUser(): User;
+
+    public function getClassAttributeNames(User $user, string $exclude = null): string;
 }

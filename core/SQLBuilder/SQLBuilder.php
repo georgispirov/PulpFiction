@@ -44,7 +44,6 @@ class SQLBuilder implements SQLBuilderInterface
                                    ->fetch(ucfirst('\\softuni\\model\\' . $tableName));
 
         if (!$model instanceof Model) {
-            echo 'The record can\'t be found :(!' . PHP_EOL;
             return false;
         }
         return $model;
@@ -61,7 +60,6 @@ class SQLBuilder implements SQLBuilderInterface
                                    ->fetchAll(ucfirst('\\softuni\\model\\' . $tableName));
 
         if (sizeof($models) < 1) {
-            echo 'No matching records by this criteria :(!';
             return [];
         }
         return $models;

@@ -9,22 +9,39 @@ use softuni\model\User;
 
 class UsersController extends Controller
 {
+    /**
+     * @var UserService
+     */
+    private $_userService;
+
     public function edit(int $id)
     {
-
+        $user = null;
+        if (($user = User::findByID($id)) instanceof User) {
+            return $this->render('user/edit', compact('user'));
+        }
+        return false;
     }
 
     public function register()
     {
-        $this->render('user/create');
-        $params = 'username|first_name|password|re_password';
-        $request = new Request();
-        if ($this->inPost($params, $_POST) === true && $request->isPostRequest()) {
-            $confirmPassword = $_POST['re_password'];
-            $user = new User();
-            $user = $user->loadData($_POST);
-            UserService::register($user, $confirmPassword);
+        $user = new User(); /* @var User $user */
+        $request = new Request(); /* @var Request $request */
+        $this->_userService = new UserService();
+        $params = $this->_userService->getClassAttributeNames($user, 'id');
+        if ($this->inPost('create_user', $_POST) && $request->isPostAjaxRequest()) {
+            $post = $this->getPostDataFromForm($_POST['create_user']);
+            if ($this->inPost($params, $post) === true) {
+                $user = $user->loadData($post);
+                if ($this->_userService->register($user) === true) {
+                    $message = 'You have successfully created the user with username: ' . $user->getUsername();
+                    echo json_encode($message);
+                }
+                $this->_userService->displayErrors($user);
+                return $this->redirect('users/register');
+            }
         }
+        return $this->render('user/create');
     }
 
     public function login()

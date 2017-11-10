@@ -50,7 +50,7 @@ class User extends Model implements UserRepository
 
     /**
      * @param string $username
-     * @return bool|User
+     * @return Model
      */
     public static function findOneByUsername(string $username)
     {
@@ -65,6 +65,7 @@ class User extends Model implements UserRepository
     public function update(User $user): bool
     {
 
+        return false;
     }
 
     public function create(User $user): bool
@@ -93,6 +94,7 @@ class User extends Model implements UserRepository
     public function delete(User $user): bool
     {
 
+        return false;
     }
 
 

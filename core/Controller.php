@@ -2,6 +2,8 @@
 
 namespace softuni\core;
 
+use softuni\core\HttpHandler\Request;
+
 abstract class Controller
 {
     protected function findModel(string $modelClass): Model
@@ -10,6 +12,7 @@ abstract class Controller
         if (class_exists($fullName)) {
             return new $fullName();
         }
+        return null;
     }
 
     protected function render(string $view, array $data = [])
@@ -50,7 +53,9 @@ abstract class Controller
         if (is_string($postData) && $postData !== null) {
             $exploded = explode('&', $postData);
             foreach ($exploded as $post) {
-                $data [] = substr($post, strpos($post, '=') + 1);
+                $name  = substr($post, 0, strpos($post, '='));
+                $value = substr($post, strpos($post, '=') + 1);
+                $data[$name] = $value;
             }
             return $data;
         }
@@ -59,8 +64,11 @@ abstract class Controller
 
     protected function redirect(string $route)
     {
-        header("Location: ../$route");
-        ob_get_clean();
-        return $this;
+        $request = new Request();
+        $request->set('Location: ', "../$route");
+        if ($_SERVER['REQUEST_URI'] == $route) {
+            return true;
+        }
+        return false;
     }
 }

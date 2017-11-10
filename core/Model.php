@@ -8,6 +8,8 @@ use softuni\DatabaseConnection\DatabaseInterface;
 
 abstract class Model
 {
+    private $_errors;
+
     protected function getDb()
     {
         if (Application::getDb() instanceof DatabaseInterface) {
@@ -56,5 +58,38 @@ abstract class Model
             }
         }
         return $model;
+    }
+
+    public function hasErrors(): bool
+    {
+        if (!empty($this->_errors)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function addErrors(array $errors): bool
+    {
+        if (is_array($errors) && !empty($errors)) {
+            foreach ($errors as $error) {
+                $this->_errors[] = $error;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function addError(string $error): bool
+    {
+        if (!empty($error)) {
+            $this->_errors[] = $error;
+            return true;
+        }
+        return false;
+    }
+
+    public function getErrors(): array
+    {
+        return $this->_errors;
     }
 }
