@@ -1,8 +1,8 @@
 <?php
 
-namespace softuni\core\repositories;
+namespace PulpFiction\core\repositories;
 
-use softuni\model\User;
+use PulpFiction\model\User;
 
 interface UserRepository
 {

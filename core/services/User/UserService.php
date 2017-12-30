@@ -1,12 +1,12 @@
 <?php
 
-namespace softuni\core\service\User;
+namespace PulpFiction\core\service\User;
 
 use ReflectionObject;
-use softuni\core\Model;
-use softuni\core\services\User\UserServiceInterface;
-use softuni\core\validators\UserValidator;
-use softuni\model\User;
+use PulpFiction\core\Model;
+use PulpFiction\core\services\User\UserServiceInterface;
+use PulpFiction\core\validators\UserValidator;
+use PulpFiction\model\User;
 
 class UserService implements UserServiceInterface, UserValidator
 {

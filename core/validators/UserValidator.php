@@ -1,8 +1,8 @@
 <?php
 
-namespace softuni\core\validators;
+namespace PulpFiction\core\validators;
 
-use softuni\model\User;
+use PulpFiction\model\User;
 
 interface UserValidator
 {

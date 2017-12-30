@@ -2,10 +2,10 @@
 
 namespace softuni\controller;
 
-use softuni\core\Controller;
-use softuni\core\HttpHandler\Request;
-use softuni\core\service\User\UserService;
-use softuni\model\User;
+use PulpFiction\core\Controller;
+use PulpFiction\core\HttpHandler\Request;
+use PulpFiction\core\service\User\UserService;
+use PulpFiction\model\User;
 
 class UsersController extends Controller
 {

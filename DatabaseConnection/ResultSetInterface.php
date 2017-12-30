@@ -1,8 +1,8 @@
 <?php
 
-namespace softuni\DatabaseConnection;
+namespace PulpFiction\DatabaseConnection;
 
-use softuni\core\Model;
+use PulpFiction\core\Model;
 
 interface ResultSetInterface
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace softuni\core;
+namespace PulpFiction\core;
 
-use softuni\core\HttpHandler\Request;
+use PulpFiction\core\HttpHandler\Request;
 
 abstract class Controller
 {
     protected function findModel(string $modelClass): Model
     {
-        $fullName = '\\softuni\\model\\' . $modelClass;
+        $fullName = '\\PulpFiction\\model\\' . $modelClass;
         if (class_exists($fullName)) {
             return new $fullName();
         }

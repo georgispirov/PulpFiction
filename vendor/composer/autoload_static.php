@@ -6,64 +6,61 @@ namespace Composer\Autoload;
 
 class ComposerStaticInite750d192d3106473ce1fb09704cfe5d2
 {
+    public static $files = array (
+        '6e60481d8c04e99474e2ba7b3658ab5a' => __DIR__ . '/..' . '/php-activerecord/php-activerecord/ActiveRecord.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
-        's' => 
+        'P' => 
         array (
-            'softuni\\model\\' => 14,
-            'softuni\\core\\service\\' => 21,
-            'softuni\\core\\' => 13,
-            'softuni\\controller\\' => 19,
-            'softuni\\DatabaseConnection\\' => 27,
+            'PulpFiction\\model\\' => 18,
+            'PulpFiction\\core\\service\\' => 25,
+            'PulpFiction\\core\\' => 17,
+            'PulpFiction\\controller\\' => 23,
+            'PulpFiction\\DatabaseConnection\\' => 31,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'softuni\\model\\' => 
+        'PulpFiction\\model\\' => 
         array (
             0 => __DIR__ . '/../..' . '/model',
         ),
-        'softuni\\core\\service\\' => 
+        'PulpFiction\\core\\service\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core/service',
         ),
-        'softuni\\core\\' => 
+        'PulpFiction\\core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core',
         ),
-        'softuni\\controller\\' => 
+        'PulpFiction\\controller\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controller',
         ),
-        'softuni\\DatabaseConnection\\' => 
+        'PulpFiction\\DatabaseConnection\\' => 
         array (
             0 => __DIR__ . '/../..' . '/DatabaseConnection',
         ),
     );
 
     public static $classMap = array (
-        'softuni\\DatabaseConnection\\Database' => __DIR__ . '/../..' . '/DatabaseConnection/Database.php',
-        'softuni\\DatabaseConnection\\DatabaseInterface' => __DIR__ . '/../..' . '/DatabaseConnection/DatabaseInterface.php',
-        'softuni\\DatabaseConnection\\PDOResultSet' => __DIR__ . '/../..' . '/DatabaseConnection/PDOResultSet.php',
-        'softuni\\DatabaseConnection\\PreparedStatement' => __DIR__ . '/../..' . '/DatabaseConnection/PreparedStatement.php',
-        'softuni\\DatabaseConnection\\PreparedStatementInterface' => __DIR__ . '/../..' . '/DatabaseConnection/PreparedStatementInterface.php',
-        'softuni\\DatabaseConnection\\ResultSetInterface' => __DIR__ . '/../..' . '/DatabaseConnection/ResultSetInterface.php',
-        'softuni\\controller\\UsersController' => __DIR__ . '/../..' . '/controller/UsersController.php',
-        'softuni\\core\\Application' => __DIR__ . '/../..' . '/core/Application.php',
-        'softuni\\core\\Controller' => __DIR__ . '/../..' . '/core/Controller.php',
-        'softuni\\core\\HttpHandler\\HeaderMap' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMap.php',
-        'softuni\\core\\HttpHandler\\HeaderMapInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMapInterface.php',
-        'softuni\\core\\HttpHandler\\HttpInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HttpInterface.php',
-        'softuni\\core\\HttpHandler\\Request' => __DIR__ . '/../..' . '/core/HttpHandler/Request.php',
-        'softuni\\core\\Model' => __DIR__ . '/../..' . '/core/Model.php',
-        'softuni\\core\\SQLBuilder\\SQLBuilder' => __DIR__ . '/../..' . '/core/SQLBuilder/SQLBuilder.php',
-        'softuni\\core\\SQLBuilder\\SQLBuilderInterface' => __DIR__ . '/../..' . '/core/SQLBuilder/SQLBuilderInterface.php',
-        'softuni\\core\\queries\\QueryInterface' => __DIR__ . '/../..' . '/core/queries/base/QueryInterface.php',
-        'softuni\\core\\queries\\UserQuery' => __DIR__ . '/../..' . '/core/queries/UserQuery.php',
-        'softuni\\core\\queries\\base\\Query' => __DIR__ . '/../..' . '/core/queries/base/Query.php',
-        'softuni\\core\\repositories\\UserRepository' => __DIR__ . '/../..' . '/core/repositories/UserRepository.php',
-        'softuni\\core\\service\\User\\UserService' => __DIR__ . '/../..' . '/core/services/User/UserService.php',
-        'softuni\\core\\services\\User\\UserServiceInterface' => __DIR__ . '/../..' . '/core/services/User/UserServiceInterface.php',
-        'softuni\\model\\User' => __DIR__ . '/../..' . '/model/User.php',
+        'PulpFiction\\DatabaseConnection\\Database' => __DIR__ . '/../..' . '/DatabaseConnection/Database.php',
+        'PulpFiction\\DatabaseConnection\\DatabaseInterface' => __DIR__ . '/../..' . '/DatabaseConnection/DatabaseInterface.php',
+        'PulpFiction\\DatabaseConnection\\PDOResultSet' => __DIR__ . '/../..' . '/DatabaseConnection/PDOResultSet.php',
+        'PulpFiction\\DatabaseConnection\\PreparedStatement' => __DIR__ . '/../..' . '/DatabaseConnection/PreparedStatement.php',
+        'PulpFiction\\DatabaseConnection\\PreparedStatementInterface' => __DIR__ . '/../..' . '/DatabaseConnection/PreparedStatementInterface.php',
+        'PulpFiction\\DatabaseConnection\\ResultSetInterface' => __DIR__ . '/../..' . '/DatabaseConnection/ResultSetInterface.php',
+        'PulpFiction\\core\\Application' => __DIR__ . '/../..',
+        'PulpFiction\\core\\Controller' => __DIR__ . '/../..' . '/core/Controller.php',
+        'PulpFiction\\core\\HttpHandler\\HeaderMap' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMap.php',
+        'PulpFiction\\core\\HttpHandler\\HeaderMapInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMapInterface.php',
+        'PulpFiction\\core\\HttpHandler\\HttpInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HttpInterface.php',
+        'PulpFiction\\core\\HttpHandler\\Request' => __DIR__ . '/../..' . '/core/HttpHandler/Request.php',
+        'PulpFiction\\core\\Model' => __DIR__ . '/../..' . '/core/Model.php',
+        'PulpFiction\\core\\repositories\\UserRepository' => __DIR__ . '/../..' . '/core/repositories/UserRepository.php',
+        'PulpFiction\\core\\validators\\UserValidator' => __DIR__ . '/../..' . '/core/validators/UserValidator.php',
+        'PulpFiction\\model\\User' => __DIR__ . '/../..' . '/model/User.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

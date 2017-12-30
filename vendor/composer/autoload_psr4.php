@@ -6,9 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'softuni\\model\\' => array($baseDir . '/model'),
-    'softuni\\core\\service\\' => array($baseDir . '/core/service'),
-    'softuni\\core\\' => array($baseDir . '/core'),
-    'softuni\\controller\\' => array($baseDir . '/controller'),
-    'softuni\\DatabaseConnection\\' => array($baseDir . '/DatabaseConnection'),
+    'PulpFiction\\model\\' => array($baseDir . '/model'),
+    'PulpFiction\\core\\service\\' => array($baseDir . '/core/service'),
+    'PulpFiction\\core\\' => array($baseDir . '/core'),
+    'PulpFiction\\controller\\' => array($baseDir . '/controller'),
+    'PulpFiction\\DatabaseConnection\\' => array($baseDir . '/DatabaseConnection'),
 );

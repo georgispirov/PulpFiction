@@ -1,6 +1,6 @@
 <?php
 
-namespace softuni\core\HttpHandler;
+namespace PulpFiction\core\HttpHandler;
 
 class Request extends HeaderMap implements HttpInterface
 {

@@ -1,10 +1,9 @@
 <?php
 
-namespace softuni\core;
+namespace PulpFiction\core;
 
 use ReflectionClass;
-use softuni\core\queries\QueryInterface;
-use softuni\DatabaseConnection\DatabaseInterface;
+use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 abstract class Model
 {
@@ -15,9 +14,8 @@ abstract class Model
         if (Application::getDb() instanceof DatabaseInterface) {
             return Application::getDb();
         }
+        return null;
     }
-
-    abstract public static function find(): QueryInterface;
 
 	abstract public static function findAll(): array;
 

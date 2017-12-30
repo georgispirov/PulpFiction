@@ -1,6 +1,6 @@
 <?php
 
-namespace softuni\DatabaseConnection;
+namespace PulpFiction\DatabaseConnection;
 
 interface PreparedStatementInterface
 {

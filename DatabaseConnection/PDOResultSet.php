@@ -1,9 +1,9 @@
 <?php
 
-namespace softuni\DatabaseConnection;
+namespace PulpFiction\DatabaseConnection;
 
 use PDOStatement;
-use softuni\core\Model;
+use PulpFiction\core\Model;
 
 class PDOResultSet implements ResultSetInterface
 {

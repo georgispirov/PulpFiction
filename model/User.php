@@ -1,13 +1,11 @@
 <?php
 
-namespace softuni\model;
+namespace PulpFiction\model;
 
-use softuni\core\Model;
-use softuni\core\queries\QueryInterface;
-use softuni\core\repositories\UserRepository;
-use softuni\DatabaseConnection\ResultSetInterface;
+use ActiveRecord\Model as ActiveRecord;
+use PulpFiction\core\Model;
 
-class User extends Model implements UserRepository
+class User extends ActiveRecord
 {
     /**
      * @var int $id
@@ -61,42 +59,6 @@ class User extends Model implements UserRepository
     {
         return new \softuni\core\queries\UserQuery(get_called_class());
     }
-
-    public function update(User $user): bool
-    {
-
-        return false;
-    }
-
-    public function create(User $user): bool
-    {
-        $sql = 'INSERT INTO 
-                user (first_name, username, password, re_password) 
-                VALUES (:first_name, :username, :password, :re_password)';
-
-        $params = [
-            ':first_name'  => $user->getFirstName(),
-            ':username'    => $user->getUsername(),
-            ':password'    => $user->getPassword(),
-            ':re_password' => $user->getRePassword()
-        ];
-
-        $query = $this->getDb()
-                      ->query($sql)
-                      ->execute($params);
-
-        if ($query instanceof ResultSetInterface) {
-            return true;
-        }
-        return false;
-    }
-
-    public function delete(User $user): bool
-    {
-
-        return false;
-    }
-
 
     /**
      * @return int

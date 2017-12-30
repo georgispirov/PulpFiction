@@ -1,6 +1,6 @@
 <?php
 
-use softuni\model\User;
+use PulpFiction\model\User;
 
 /* @var User $data */
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace softuni\core\services\User;
+namespace PulpFiction\core\services\User;
 
-use softuni\model\User;
+use PulpFiction\model\User;
 
 interface UserServiceInterface
 {
