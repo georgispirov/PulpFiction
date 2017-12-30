@@ -15,9 +15,13 @@ abstract class Controller
         return null;
     }
 
-    protected function render(string $view, array $data = [])
+    public function render(string $view, array $data = [])
     {
+        ob_start();
         require_once '../view' . DIRECTORY_SEPARATOR . $view . '.php';
+        $contentData = ob_get_contents();
+        ob_get_clean();
+        echo $contentData;
         return $this;
     }
 
@@ -62,10 +66,10 @@ abstract class Controller
         return [];
     }
 
-    protected function redirect(string $route)
+    public function redirect(string $route)
     {
         $request = new Request();
-        $request->set('Location: ', "../$route");
+        $request->set("Location: ", "../$route");
         if ($_SERVER['REQUEST_URI'] == $route) {
             return true;
         }

@@ -3,15 +3,15 @@
 namespace PulpFiction\core\App;
 
 use Exception;
+use PulpFiction\core\Controller;
 use PulpFiction\core\Dispatch\DispatcherInterface;
 use PulpFiction\core\Response\ResponseInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
-use ReflectionClass;
 
 class Application implements ApplicationInterface
 {
     /**
-     * @var string
+     * @var string|Controller
      */
     protected $controller = 'home';
 
@@ -55,27 +55,31 @@ class Application implements ApplicationInterface
         $this->dispatcher = $dispatcher;
         $this->response   = $response;
 
-        list($controller, $action, $args) = $this->parseUrl();
+        $url = $this->parseUrl();
 
-        if (null === $controller || null === $action) {
+        if (sizeof($url) == 1) {
             $this->response->applyStatusCode(404);
-            throw new Exception('Given route cannot be matched.');
+            return $this->response->sendHeaders();
+        }
+
+        list($controller, $action) = $url;
+
+        if (sizeof($url) > 2) {
+            $this->args = (array) end($url);
         }
 
         if ( !$this->dispatcher->loadController($this, $controller) instanceof ApplicationInterface ) {
-            $this->response->applyStatusCode(404);
-            throw new Exception('Unresolveable route.');
+            return $this->controller->render('home/not_found');
         }
 
         if ( !$this->dispatcher->loadAction($this, $action) instanceof ApplicationInterface ) {
-            $this->response->applyStatusCode(404);
-            throw new Exception('Unresolveable route.');
+            return $this->controller->render('home/not_found');
         }
 
-        $this->dispatcher->run([
-            'controller' => $controller,
-            'action'     => $action
-        ], $args);
+        return $this->dispatcher->run([
+                    'controller' => $this->controller,
+                    'action'     => $this->action
+                ], $this->args);
     }
 
     public function getDb(DatabaseInterface $database)
@@ -95,5 +99,40 @@ class Application implements ApplicationInterface
         }
 
         return [];
+    }
+
+    public function setController(Controller $controller)
+    {
+        $this->controller = $controller;
+    }
+
+    public function setAction(string $action)
+    {
+        $this->action = $action;
+    }
+
+    /**
+     * @return null|Controller
+     */
+    public function getController()
+    {
+        return $this->controller;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getAction(): string
+    {
+        return $this->action;
+    }
+
+    /**
+     * @return ResponseInterface
+     */
+    public function getResponse(): ResponseInterface
+    {
+        return $this->response;
     }
 }
