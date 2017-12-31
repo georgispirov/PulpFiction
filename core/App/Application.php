@@ -2,10 +2,12 @@
 
 namespace PulpFiction\core\App;
 
-use Exception;
-use PulpFiction\core\Controller;
+use PulpFiction\core\BaseController\BaseControllerInterface;
+use PulpFiction\core\BaseController\Controller;
 use PulpFiction\core\Dispatch\DispatcherInterface;
+use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\Response\ResponseInterface;
+use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 class Application implements ApplicationInterface
@@ -36,44 +38,66 @@ class Application implements ApplicationInterface
     private $dispatcher;
 
     /**
-     * @var ResponseInterface
+     * @var ResponseInterface $response
      */
+
     private $response;
+
+    /**
+     * @var TemplateInterface $template
+     */
+    private $template;
+
+    /**
+     * @var HttpInterface $request
+     */
+    private $request;
 
     /**
      * Application constructor.
      * @param DatabaseInterface $database
      * @param DispatcherInterface $dispatcher
      * @param ResponseInterface $response
-     * @throws Exception
+     * @param TemplateInterface $template
+     * @param HttpInterface $request
      */
     public function __construct(DatabaseInterface $database,
                                 DispatcherInterface $dispatcher,
-                                ResponseInterface $response)
+                                ResponseInterface $response,
+                                TemplateInterface $template,
+                                HttpInterface $request)
     {
         self::$db         = $database;
         $this->dispatcher = $dispatcher;
         $this->response   = $response;
+        $this->template   = $template;
+        $this->request    = $request;
 
         $url = $this->parseUrl();
 
+        $this->dispatcher->loadController($this, $this->controller);
+        $this->dispatcher->loadAction($this, $this->action);
+
         if (sizeof($url) == 1) {
-            $this->response->applyStatusCode(404);
-            return $this->response->sendHeaders();
+            return $this->dispatcher->setNotFoundPage($this);
         }
 
-        list($controller, $action) = $url;
+        if (sizeof($url) == 2) {
+
+            list($controller, $action) = $url;
+
+            if ( !$this->dispatcher->loadController($this, $controller) instanceof ApplicationInterface ) {
+                return $this->dispatcher->setNotFoundPage($this);
+            }
+
+            if ( !$this->dispatcher->loadAction($this, $action) instanceof ApplicationInterface ) {
+                return $this->dispatcher->setNotFoundPage($this);
+            }
+
+        }
 
         if (sizeof($url) > 2) {
             $this->args = (array) end($url);
-        }
-
-        if ( !$this->dispatcher->loadController($this, $controller) instanceof ApplicationInterface ) {
-            return $this->controller->render('home/not_found');
-        }
-
-        if ( !$this->dispatcher->loadAction($this, $action) instanceof ApplicationInterface ) {
-            return $this->controller->render('home/not_found');
         }
 
         return $this->dispatcher->run([
@@ -82,6 +106,10 @@ class Application implements ApplicationInterface
                 ], $this->args);
     }
 
+    /**
+     * @param DatabaseInterface $database
+     * @return DatabaseInterface
+     */
     public function getDb(DatabaseInterface $database)
     {
         return self::$db;
@@ -90,7 +118,7 @@ class Application implements ApplicationInterface
     /**
      * @return array
      */
-    public function parseUrl()
+    public function parseUrl(): array
     {
         if (isset($_GET['url'])) {
             return $url = explode('/',
@@ -101,24 +129,13 @@ class Application implements ApplicationInterface
         return [];
     }
 
-    public function setController(Controller $controller)
-    {
-        $this->controller = $controller;
-    }
-
+    /**
+     * @param string $action
+     */
     public function setAction(string $action)
     {
         $this->action = $action;
     }
-
-    /**
-     * @return null|Controller
-     */
-    public function getController()
-    {
-        return $this->controller;
-    }
-
 
     /**
      * @return string
@@ -129,10 +146,42 @@ class Application implements ApplicationInterface
     }
 
     /**
+     * @param BaseControllerInterface $controller
+     */
+    public function setController(BaseControllerInterface $controller)
+    {
+        $this->controller = $controller;
+    }
+
+    /**
+     * @return BaseControllerInterface|string
+     */
+    public function getController(): BaseControllerInterface
+    {
+        return $this->controller;
+    }
+
+    /**
      * @return ResponseInterface
      */
     public function getResponse(): ResponseInterface
     {
         return $this->response;
+    }
+
+    /**
+     * @return TemplateInterface
+     */
+    public function getTemplate(): TemplateInterface
+    {
+        return $this->template;
+    }
+
+    /**
+     * @return HttpInterface
+     */
+    public function getRequest(): HttpInterface
+    {
+        return $this->request;
     }
 }

@@ -29,4 +29,10 @@ interface DispatcherInterface
      */
     public function run(array $callable,
                         array $args);
+
+    /**
+     * @param ApplicationInterface $application
+     * @return mixed
+     */
+    public function setNotFoundPage(ApplicationInterface $application);
 }

@@ -60,4 +60,33 @@ class Request extends HeaderMap implements HttpInterface
     {
         return ($this->isPostRequest() && $this->isAjax());
     }
+
+    /**
+     * @return string
+     */
+    public function getQueryString(): string
+    {
+        return isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
+    }
+
+    public function getReferrer()
+    {
+        return $this->_headerMap->get('Referer');
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getServerName()
+    {
+        return ($_SERVER['SERVER_NAME']) ?? null;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType(): string
+    {
+        return ($_SERVER['CONTENT_TYPE']) ?? $this->_headerMap->get('Content-Type');
+    }
 }

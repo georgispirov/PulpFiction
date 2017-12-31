@@ -4,11 +4,14 @@ namespace PulpFiction\core\HttpHandler;
 
 class HeaderMap implements HeaderMapInterface
 {
+    /**
+     * @var array $_headers
+     */
     private $_headers = [];
 
     /**
      * @param string $name
-     * @return array|null
+     * @return string|null
      */
     public function get(string $name)
     {
@@ -45,6 +48,10 @@ class HeaderMap implements HeaderMapInterface
         return $this;
     }
 
+    /**
+     * @param string $name
+     * @return bool
+     */
     public function isHaving(string $name): bool
     {
         $name = strtolower($name);

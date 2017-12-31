@@ -2,8 +2,10 @@
 
 namespace PulpFiction\core\App;
 
-use PulpFiction\core\Controller;
+use PulpFiction\core\BaseController\BaseControllerInterface;
+use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\Response\ResponseInterface;
+use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 interface ApplicationInterface
@@ -20,9 +22,19 @@ interface ApplicationInterface
     public function getResponse(): ResponseInterface;
 
     /**
-     * @return null|Controller
+     * @return BaseControllerInterface|string
      */
-    public function getController();
+    public function getController(): BaseControllerInterface;
+
+    /**
+     * @return TemplateInterface
+     */
+    public function getTemplate(): TemplateInterface;
+
+    /**
+     * @return HttpInterface
+     */
+    public function getRequest(): HttpInterface;
 
     /**
      * @return string
@@ -30,19 +42,17 @@ interface ApplicationInterface
     public function getAction(): string;
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function parseUrl();
+    public function parseUrl(): array;
 
     /**
-     * @param Controller $controller
-     * @return mixed
+     * @param BaseControllerInterface $controller
      */
-    public function setController(Controller $controller);
+    public function setController(BaseControllerInterface $controller);
 
     /**
      * @param string $action
-     * @return mixed
      */
     public function setAction(string $action);
 }

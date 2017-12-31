@@ -52,7 +52,7 @@ class ComposerStaticInite750d192d3106473ce1fb09704cfe5d2
         'PulpFiction\\DatabaseConnection\\PreparedStatementInterface' => __DIR__ . '/../..' . '/DatabaseConnection/PreparedStatementInterface.php',
         'PulpFiction\\DatabaseConnection\\ResultSetInterface' => __DIR__ . '/../..' . '/DatabaseConnection/ResultSetInterface.php',
         'PulpFiction\\core\\Application' => __DIR__ . '/../..',
-        'PulpFiction\\core\\Controller' => __DIR__ . '/../..' . '/core/Controller.php',
+        'PulpFiction\\core\\Controller' => __DIR__ . '/../..',
         'PulpFiction\\core\\HttpHandler\\HeaderMap' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMap.php',
         'PulpFiction\\core\\HttpHandler\\HeaderMapInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMapInterface.php',
         'PulpFiction\\core\\HttpHandler\\HttpInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HttpInterface.php',
