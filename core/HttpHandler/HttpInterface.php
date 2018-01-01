@@ -5,9 +5,9 @@ namespace PulpFiction\core\HttpHandler;
 interface HttpInterface
 {
     /**
-     * @return HeaderMap
+     * @return HeaderMapInterface
      */
-    public function getHeaders(): HeaderMap;
+    public function getRequestHeaders(): HeaderMapInterface;
 
     /**
      * @return bool

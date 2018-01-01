@@ -9,10 +9,10 @@ class Request extends HeaderMap implements HttpInterface
      */
     private $_headerMap;
 
-    /** Get all headers
-     * @return HeaderMap
+    /**
+     * @return HeaderMapInterface
      */
-    public function getHeaders(): HeaderMap
+    public function getRequestHeaders(): HeaderMapInterface
     {
         if (!$this->_headerMap instanceof HeaderMap) {
             $this->_headerMap =  new parent();

@@ -57,4 +57,9 @@ class HeaderMap implements HeaderMapInterface
         $name = strtolower($name);
         return array_key_exists($name, $this->_headers);
     }
+
+    public function getHeaders(): array
+    {
+        return $this->_headers;
+    }
 }

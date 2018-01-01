@@ -22,7 +22,7 @@ interface ResponseInterface
     /**
      * @return HeaderMapInterface
      */
-    public function getHeaders(): HeaderMapInterface;
+    public function getHeaderMap(): HeaderMapInterface;
 
     /**
      * @return mixed

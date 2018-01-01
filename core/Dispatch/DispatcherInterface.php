@@ -23,12 +23,10 @@ interface DispatcherInterface
                                string $action);
 
     /**
-     * @param array $callable
-     * @param array $args
+     * @param ApplicationInterface $application
      * @return mixed
      */
-    public function run(array $callable,
-                        array $args);
+    public function run(ApplicationInterface $application);
 
     /**
      * @param ApplicationInterface $application

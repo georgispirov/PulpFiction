@@ -3,7 +3,9 @@
 namespace PulpFiction\core\Dispatch;
 
 use PulpFiction\core\App\ApplicationInterface;
+use PulpFiction\core\PulpFiction;
 use ReflectionClass;
+use ReflectionMethod;
 
 class Dispatcher implements DispatcherInterface
 {
@@ -46,14 +48,21 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @param array $callable
-     * @param array $args
+     * @param ApplicationInterface $application
      * @return mixed
      */
-    public function run(array $callable,
-                        array $args)
+    public function run(ApplicationInterface $application)
     {
-       return call_user_func_array([$callable['controller'], $callable['action']], $args);
+        $reflectionMethod = new ReflectionMethod($application->getController(), $application->getAction());
+
+        if ( $reflectionMethod->getNumberOfRequiredParameters() < sizeof($application->getRouteArguments()) ) {
+            return $this->setNotFoundPage($application);
+        }
+
+        return call_user_func_array([
+                            $application->getController(),
+                            $application->getAction()
+                         ], $application->getRouteArguments());
     }
 
     /**
@@ -62,8 +71,6 @@ class Dispatcher implements DispatcherInterface
      */
     public function setNotFoundPage(ApplicationInterface $application)
     {
-        $application->getResponse()->applyStatusCode(404);
-        $application->getResponse()->sendHeaders();
         return $application->getController()->render('home/not_found');
     }
 }

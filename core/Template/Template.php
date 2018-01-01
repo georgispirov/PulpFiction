@@ -5,23 +5,13 @@ namespace PulpFiction\core\Template;
 class Template implements TemplateInterface
 {
     /**
-     * @var array $properties
-     */
-    private $properties;
-
-    /**
      * @var string
      */
     private $viewFilesPath;
 
     /**
-     * Invoked method after cloning the object and removes all applied properties to the class.
+     * Template constructor.
      */
-    public function __clone()
-    {
-        $this->properties = [];
-    }
-
     public function __construct()
     {
         $this->setViewFilesPath();
@@ -35,8 +25,8 @@ class Template implements TemplateInterface
     public function render(string $view,
                            array $data = []): TemplateInterface
     {
-        if (isset($this->properties)) {
-            extract($this->properties);
+        if ($data) {
+            extract($data);
         }
 
         ob_start();

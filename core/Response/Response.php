@@ -15,9 +15,9 @@ class Response implements ResponseInterface
     private $statusCode;
 
     /**
-     * @var HeaderMapInterface $headers
+     * @var HeaderMapInterface|null $headers
      */
-    private $headers;
+    private $headerMap;
 
     /**
      * @var string $message
@@ -58,30 +58,24 @@ class Response implements ResponseInterface
     /**
      * @return HeaderMapInterface
      */
-    public function getHeaders(): HeaderMapInterface
+    public function getHeaderMap(): HeaderMapInterface
     {
-        if (null === $this->headers) {
-            $this->headers = new HeaderMap();
+        if (null === $this->headerMap) {
+            $this->headerMap = new HeaderMap();
         }
 
-        return $this->headers;
+        return $this->headerMap;
     }
 
     public function sendHeaders()
     {
-        if (sizeof($this->headers) > 0) {
-            foreach ($this->headers as $headerName => $headerValue) {
-                $name = str_replace(' ', '-', ucwords(str_replace('-', ' ', $headerName)));
-                $replace = true;
+        if ($this->getHeaderMap()->getHeaders()) {
+            foreach ($this->getHeaderMap()->getHeaders() as $headerName => $headerValue) {
                 foreach ($headerValue as $value) {
-                    header("$name: $value", $replace);
-                    $replace = false;
+                    header("$headerName: $value");
                 }
             }
         }
-
-        $code = $this->getStatusCode();
-        header("HTTP/1.1 {$code} {$this->message}");
     }
 
     /**

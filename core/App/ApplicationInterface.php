@@ -11,6 +11,21 @@ use PulpFiction\DatabaseConnection\DatabaseInterface;
 interface ApplicationInterface
 {
     /**
+     * @return string
+     */
+    public function getScriptSourceFolder(): string;
+
+    /**
+     * @return string
+     */
+    public function getRootFolder(): string;
+
+    /**
+     * @return string
+     */
+    public function getImageSourceFolder(): string;
+
+    /**
      * @param DatabaseInterface $database
      * @return mixed
      */
@@ -42,11 +57,6 @@ interface ApplicationInterface
     public function getAction(): string;
 
     /**
-     * @return array
-     */
-    public function parseUrl(): array;
-
-    /**
      * @param BaseControllerInterface $controller
      */
     public function setController(BaseControllerInterface $controller);
@@ -55,4 +65,19 @@ interface ApplicationInterface
      * @param string $action
      */
     public function setAction(string $action);
+
+    /**
+     * @return array
+     */
+    public function getRouteArguments(): array;
+
+    /**
+     * @param string $controller
+     * @param string $action
+     * @param array $args
+     * @return mixed
+     */
+    public function callAction(string $controller,
+                               string $action,
+                               array $args = []);
 }
