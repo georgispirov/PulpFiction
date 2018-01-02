@@ -3,7 +3,6 @@
 namespace PulpFiction\core\Dispatch;
 
 use PulpFiction\core\App\ApplicationInterface;
-use PulpFiction\core\PulpFiction;
 use ReflectionClass;
 use ReflectionMethod;
 

@@ -3,23 +3,23 @@
 namespace PulpFiction\core\App;
 
 use PulpFiction\core\BaseController\BaseControllerInterface;
-use PulpFiction\core\BaseController\Controller;
 use PulpFiction\core\Dispatch\DispatcherInterface;
 use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\PulpFiction;
 use PulpFiction\core\Response\ResponseInterface;
 use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
+use ReflectionClass;
 
 class Application implements ApplicationInterface
 {
     /**
-     * @var string|Controller
+     * @var BaseControllerInterface $controller
      */
-    protected $controller = 'home';
+    protected $controller;
 
     /**
-     * @var string
+     * @var string $action
      */
     protected $action     = 'index';
 
@@ -75,6 +75,9 @@ class Application implements ApplicationInterface
         $this->request    = $request;
         PulpFiction::$app = $this;
 
+        $this->dispatcher->loadController($this, 'home');
+        $this->dispatcher->loadAction($this, 'index');
+
         $url = $this->parseUrl();
 
         if (false === $this->prepareApplication($url)) {
@@ -90,7 +93,7 @@ class Application implements ApplicationInterface
     private function parseUrl(): array
     {
         if (isset($_GET['url'])) {
-            return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+            return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
 
         return [];
@@ -99,15 +102,17 @@ class Application implements ApplicationInterface
     private function prepareApplication(array $params): bool
     {
         $isApplicationValid = true;
+        $homeController = (new ReflectionClass($this->getController()))->getName();
 
         $this->args = (sizeof($params) > 2) ? (array) end($params) : [];
 
-        if ( !isset($params) ) {
-            $this->dispatcher->loadController($this, $this->controller);
+        if (sizeof($params) == 0) {
+            $this->dispatcher->loadController($this, $homeController);
             $this->dispatcher->loadAction($this, $this->action);
         }
 
         if (sizeof($params) == 1) {
+            $this->dispatcher->loadController($this, $homeController);
             $isApplicationValid = false;
         }
 
@@ -152,7 +157,7 @@ class Application implements ApplicationInterface
     }
 
     /**
-     * @param BaseControllerInterface|string $controller
+     * @param BaseControllerInterface $controller
      */
     public function setController(BaseControllerInterface $controller)
     {
@@ -160,7 +165,7 @@ class Application implements ApplicationInterface
     }
 
     /**
-     * @return BaseControllerInterface|string
+     * @return BaseControllerInterface
      */
     public function getController(): BaseControllerInterface
     {

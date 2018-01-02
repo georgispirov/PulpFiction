@@ -37,7 +37,7 @@ interface ApplicationInterface
     public function getResponse(): ResponseInterface;
 
     /**
-     * @return BaseControllerInterface|string
+     * @return BaseControllerInterface
      */
     public function getController(): BaseControllerInterface;
 
