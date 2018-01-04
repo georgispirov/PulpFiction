@@ -13,7 +13,7 @@ class ImageController extends Controller
      * @return string
      * @throws HttpInvalidParamException
      */
-    public function getNotFoundImage(string $imageFile)
+    public function getImage(string $imageFile)
     {
         $file = PulpFiction::$app->getImageSourceFolder() . DIRECTORY_SEPARATOR . $imageFile . '.jpg';
         if (file_exists($file)) {

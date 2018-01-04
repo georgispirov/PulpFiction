@@ -104,7 +104,7 @@ class Application implements ApplicationInterface
         $isApplicationValid = true;
         $homeController = (new ReflectionClass($this->getController()))->getName();
 
-        $this->args = (sizeof($params) > 2) ? (array) end($params) : [];
+        $this->args = (sizeof($params) === 3) ? (array) end($params) : [];
 
         if (sizeof($params) == 0) {
             $this->dispatcher->loadController($this, $homeController);

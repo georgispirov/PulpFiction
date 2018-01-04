@@ -54,7 +54,7 @@ class Dispatcher implements DispatcherInterface
     {
         $reflectionMethod = new ReflectionMethod($application->getController(), $application->getAction());
 
-        if ( $reflectionMethod->getNumberOfRequiredParameters() < sizeof($application->getRouteArguments()) ) {
+        if ( $reflectionMethod->getNumberOfRequiredParameters() > sizeof($application->getRouteArguments()) ) {
             return $this->setNotFoundPage($application);
         }
 
