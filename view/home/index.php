@@ -1,6 +1,8 @@
 <?php
-    use PulpFiction\core\PulpFiction;
+    /* @var $this \PulpFiction\core\Template\Template */
 ?>
+
+
 
 <html>
     <head>
@@ -9,12 +11,10 @@
     <body>
         <div class="main-header">
             <h1>Welcome!</h1>
+        </div>
+        <div class="main-header-image">
             <?php
-                $imageFile = PulpFiction::$app->callAction('image', 'imageFile', ['imageFile' => 'main-image']);
-
-                echo '<img src="data:image/jpg;base64,'. $imageNotFound . '" width="300" 
-                                                                             height="200" 
-                                                                             class="img-responsive not-found-image">'
+                $this->render('image/main-image-header');
             ?>
         </div>
     </body>
