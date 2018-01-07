@@ -6,20 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'PulpFiction\\DatabaseConnection\\Database' => $baseDir . '/DatabaseConnection/Database.php',
-    'PulpFiction\\DatabaseConnection\\DatabaseInterface' => $baseDir . '/DatabaseConnection/DatabaseInterface.php',
-    'PulpFiction\\DatabaseConnection\\PDOResultSet' => $baseDir . '/DatabaseConnection/PDOResultSet.php',
-    'PulpFiction\\DatabaseConnection\\PreparedStatement' => $baseDir . '/DatabaseConnection/PreparedStatement.php',
-    'PulpFiction\\DatabaseConnection\\PreparedStatementInterface' => $baseDir . '/DatabaseConnection/PreparedStatementInterface.php',
-    'PulpFiction\\DatabaseConnection\\ResultSetInterface' => $baseDir . '/DatabaseConnection/ResultSetInterface.php',
-    'PulpFiction\\core\\Application' => $baseDir . '/core/Application.php',
-    'PulpFiction\\core\\Controller' => $baseDir . '/core/Controller.php',
-    'PulpFiction\\core\\HttpHandler\\HeaderMap' => $baseDir . '/core/HttpHandler/HeaderMap.php',
-    'PulpFiction\\core\\HttpHandler\\HeaderMapInterface' => $baseDir . '/core/HttpHandler/HeaderMapInterface.php',
-    'PulpFiction\\core\\HttpHandler\\HttpInterface' => $baseDir . '/core/HttpHandler/HttpInterface.php',
-    'PulpFiction\\core\\HttpHandler\\Request' => $baseDir . '/core/HttpHandler/Request.php',
-    'PulpFiction\\core\\Model' => $baseDir . '/core/Model.php',
-    'PulpFiction\\core\\repositories\\UserRepository' => $baseDir . '/core/repositories/UserRepository.php',
-    'PulpFiction\\core\\validators\\UserValidator' => $baseDir . '/core/validators/UserValidator.php',
-    'PulpFiction\\model\\User' => $baseDir . '/model/User.php',
 );

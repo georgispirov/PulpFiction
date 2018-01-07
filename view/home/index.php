@@ -25,6 +25,9 @@
             <input type="password" name="password" id="password" autocomplete="off">
         </div>
     </div>
+    <div class="button-login">
+        <input type="submit" name="login-button" id="login-button" value="Вход">
+    </div>
     <div class="button-register">
         <a href="/security/register">РЕГИСТРАЦИЯ</a>
     </div>

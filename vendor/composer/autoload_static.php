@@ -6,10 +6,6 @@ namespace Composer\Autoload;
 
 class ComposerStaticInite750d192d3106473ce1fb09704cfe5d2
 {
-    public static $files = array (
-        '6e60481d8c04e99474e2ba7b3658ab5a' => __DIR__ . '/..' . '/php-activerecord/php-activerecord/ActiveRecord.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
@@ -44,31 +40,11 @@ class ComposerStaticInite750d192d3106473ce1fb09704cfe5d2
         ),
     );
 
-    public static $classMap = array (
-        'PulpFiction\\DatabaseConnection\\Database' => __DIR__ . '/../..' . '/DatabaseConnection/Database.php',
-        'PulpFiction\\DatabaseConnection\\DatabaseInterface' => __DIR__ . '/../..' . '/DatabaseConnection/DatabaseInterface.php',
-        'PulpFiction\\DatabaseConnection\\PDOResultSet' => __DIR__ . '/../..' . '/DatabaseConnection/PDOResultSet.php',
-        'PulpFiction\\DatabaseConnection\\PreparedStatement' => __DIR__ . '/../..' . '/DatabaseConnection/PreparedStatement.php',
-        'PulpFiction\\DatabaseConnection\\PreparedStatementInterface' => __DIR__ . '/../..' . '/DatabaseConnection/PreparedStatementInterface.php',
-        'PulpFiction\\DatabaseConnection\\ResultSetInterface' => __DIR__ . '/../..' . '/DatabaseConnection/ResultSetInterface.php',
-        'PulpFiction\\core\\Application' => __DIR__ . '/../..',
-        'PulpFiction\\core\\Controller' => __DIR__ . '/../..',
-        'PulpFiction\\core\\HttpHandler\\HeaderMap' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMap.php',
-        'PulpFiction\\core\\HttpHandler\\HeaderMapInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HeaderMapInterface.php',
-        'PulpFiction\\core\\HttpHandler\\HttpInterface' => __DIR__ . '/../..' . '/core/HttpHandler/HttpInterface.php',
-        'PulpFiction\\core\\HttpHandler\\Request' => __DIR__ . '/../..' . '/core/HttpHandler/Request.php',
-        'PulpFiction\\core\\Model' => __DIR__ . '/../..' . '/core/Model.php',
-        'PulpFiction\\core\\repositories\\UserRepository' => __DIR__ . '/../..' . '/core/repositories/UserRepository.php',
-        'PulpFiction\\core\\validators\\UserValidator' => __DIR__ . '/../..' . '/core/validators/UserValidator.php',
-        'PulpFiction\\model\\User' => __DIR__ . '/../..' . '/model/User.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInite750d192d3106473ce1fb09704cfe5d2::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInite750d192d3106473ce1fb09704cfe5d2::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite750d192d3106473ce1fb09704cfe5d2::$classMap;
 
         }, null, ClassLoader::class);
     }

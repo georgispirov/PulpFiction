@@ -2,7 +2,7 @@
 
 namespace PulpFiction\DatabaseConnection;
 
-use ActiveRecord\Config;
+
 use PDO;
 
 class Database implements DatabaseInterface
@@ -39,13 +39,6 @@ class Database implements DatabaseInterface
             $database->pdo = new PDO($dsn, $user, $password);
             $database->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-
-        Config::initialize(function ($config) { /* @var Config $config */
-//            $config->set_model_directory('PulpFiction/model');
-            $config->set_connections([
-                'development' => 'mysql://georgi:panameraflow1@localhost/pulp_fiction'
-            ]);
-        });
 
         return $database;
     }

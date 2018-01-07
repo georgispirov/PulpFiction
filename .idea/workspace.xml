@@ -2,10 +2,159 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcfe8f16-20be-4e09-bae8-d916b644e78c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/Exceptions/InvalidAppliedConfigException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/Repositories/UserRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/Session/Session.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/Session/SessionInterface.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/Session/SessionIterator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/entities/User.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/composer.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/queries/UserQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/queries/base/Query.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/queries/base/QueryInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/repositories/UserRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/model/User.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/.editorconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/ActiveRecord.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/CHANGELOG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/orders/models/Order.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/orders/models/Payment.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/orders/models/Person.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/orders/orders.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/orders/orders.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/simple/simple.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/simple/simple.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/simple/simple_with_options.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/examples/simple/simple_with_options.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Cache.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/CallBack.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Column.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Connection.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/ConnectionManager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/DateTime.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/DateTimeInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Exceptions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Expressions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Inflector.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Model.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Reflections.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Relationship.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/SQLBuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Serialization.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Singleton.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Utils.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Validations.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/adapters/MysqlAdapter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/adapters/OciAdapter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/adapters/PgsqlAdapter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/adapters/SqliteAdapter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/cache/Memcache.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ActiveRecordCacheTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ActiveRecordFindTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ActiveRecordTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ActiveRecordWriteTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/CacheModelTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/CacheTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/CallbackTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ColumnTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ConfigTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ConnectionManagerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ConnectionTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/DateFormatTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/DateTimeTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ExpressionsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/HasManyThroughTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/InflectorTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ModelCallbackTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/MysqlAdapterTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/OciAdapterTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/PgsqlAdapterTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/RelationshipTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/SQLBuilderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/SerializationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/SqliteAdapterTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/UtilsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ValidatesFormatOfTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ValidatesInclusionAndExclusionOfTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ValidatesLengthOfTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ValidatesNumericalityOfTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ValidatesPresenceOfTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/ValidationsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/amenities.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/authors.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/awesome_people.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/books.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/employees.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/events.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/hosts.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/newsletters.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/positions.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/property.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/property_amenities.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/publishers.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/rm-bldg.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/user_newsletters.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/users.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/valuestore.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/fixtures/venues.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/helpers/AdapterTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/helpers/DatabaseLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/helpers/DatabaseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/helpers/SnakeCase_PHPUnit_Framework_TestCase.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/helpers/config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/helpers/foo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Amenity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Author.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/AuthorAttrAccessible.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/AwesomePerson.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Book.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/BookAttrAccessible.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/BookAttrProtected.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Employee.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Event.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Host.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/JoinAuthor.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/JoinBook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/NamespaceTest/Book.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/NamespaceTest/SubNamespaceTest/Page.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Position.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Property.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/PropertyAmenity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Publisher.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/RmBldg.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/Venue.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/VenueAfterCreate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/models/VenueCB.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/sql/mysql.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/sql/oci-after-fixtures.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/sql/oci.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/sql/pgsql-after-fixtures.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/sql/pgsql.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/test/sql/sqlite.sql" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/Model.php" afterPath="$PROJECT_DIR$/core/BaseModel/Model.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/services/User/UserService.php" afterPath="$PROJECT_DIR$/core/Services/User/UserService.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/services/User/UserServiceInterface.php" afterPath="$PROJECT_DIR$/core/Services/User/UserServiceInterface.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/validators/UserValidator.php" afterPath="$PROJECT_DIR$/core/Validators/UserValidator.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseConnection/Database.php" afterPath="$PROJECT_DIR$/DatabaseConnection/Database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/App/Application.php" afterPath="$PROJECT_DIR$/core/App/Application.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/App/ApplicationInterface.php" afterPath="$PROJECT_DIR$/core/App/ApplicationInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/home/index.php" afterPath="$PROJECT_DIR$/view/home/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/image/main-image-header.php" afterPath="$PROJECT_DIR$/view/image/main-image-header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,8 +190,8 @@
       <file leaf-file-name="Application.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/App/Application.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="205" column="0" lean-forward="true" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+            <state relative-caret-position="338">
+              <caret line="229" column="51" lean-forward="true" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
               <folding>
                 <element signature="e#40#100#0#PHP" expanded="true" />
               </folding>
@@ -50,66 +199,78 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/ImageController.php">
+      <file leaf-file-name="ApplicationInterface.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/App/ApplicationInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="958">
+              <caret line="38" column="38" lean-forward="true" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
               <folding>
-                <element signature="e#42#72#0#PHP" expanded="true" />
+                <element signature="e#40#100#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/home/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            <state relative-caret-position="260">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/SecurityController.php">
+      <file leaf-file-name="Database.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DatabaseConnection/Database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state relative-caret-position="464">
+              <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main-image-header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/image/main-image-header.php">
+      <file leaf-file-name="UserService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/Services/User/UserService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dispatcher.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/Dispatch/Dispatcher.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+            <state relative-caret-position="1872">
+              <caret line="72" column="20" lean-forward="true" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
               <folding>
-                <element signature="e#45#91#0#PHP" expanded="true" />
+                <element signature="e#49#70#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Session.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/Session/Session.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="170" column="34" lean-forward="true" selection-start-line="170" selection-start-column="34" selection-end-line="170" selection-end-column="34" />
+              <folding>
+                <element signature="e#44#60#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionInterface.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/Session/SessionInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/entities/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,6 +290,12 @@
       <find>'app'</find>
       <find>var_dump</find>
       <find>setController</find>
+      <find>Model</find>
+      <find>getIsAc</find>
+      <find>isActive</find>
+      <find>getCount</find>
+      <find>getSession</find>
+      <find>getIter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,19 +304,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DatabaseConnection/dbconfig.ini" />
-        <option value="$PROJECT_DIR$/core/repositories/UserRepository.php" />
-        <option value="$PROJECT_DIR$/core/validators/UserValidator.php" />
-        <option value="$PROJECT_DIR$/DatabaseConnection/DatabaseInterface.php" />
         <option value="$PROJECT_DIR$/DatabaseConnection/PreparedStatement.php" />
         <option value="$PROJECT_DIR$/DatabaseConnection/PreparedStatementInterface.php" />
         <option value="$PROJECT_DIR$/DatabaseConnection/ResultSetInterface.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/DatabaseConnection/PDOResultSet.php" />
         <option value="$PROJECT_DIR$/view/user/edit.php" />
         <option value="$PROJECT_DIR$/model/User.php" />
         <option value="$PROJECT_DIR$/core/Model.php" />
-        <option value="$PROJECT_DIR$/DatabaseConnection/Database.php" />
         <option value="$PROJECT_DIR$/controller/UsersController.php" />
         <option value="$PROJECT_DIR$/core/services/User/UserService.php" />
         <option value="$PROJECT_DIR$/core/services/User/UserServiceInterface.php" />
@@ -171,16 +332,29 @@
         <option value="$PROJECT_DIR$/core/HttpHandler/Request.php" />
         <option value="$PROJECT_DIR$/core/HttpHandler/HttpInterface.php" />
         <option value="$PROJECT_DIR$/core/Response/Response.php" />
-        <option value="$PROJECT_DIR$/core/App/ApplicationInterface.php" />
         <option value="$PROJECT_DIR$/controller/ImageController.php" />
         <option value="$PROJECT_DIR$/controller/HomeController.php" />
         <option value="$PROJECT_DIR$/view/home/not_found.php" />
         <option value="$PROJECT_DIR$/core/Dispatch/Dispatcher.php" />
-        <option value="$PROJECT_DIR$/core/App/Application.php" />
         <option value="$PROJECT_DIR$/view/image/main-image-header.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
-        <option value="$PROJECT_DIR$/view/home/index.php" />
         <option value="$PROJECT_DIR$/controller/SecurityController.php" />
+        <option value="$PROJECT_DIR$/view/home/index.php" />
+        <option value="$PROJECT_DIR$/core/App/ApplicationInterface.php" />
+        <option value="$PROJECT_DIR$/core/BaseModel/Model.php" />
+        <option value="$PROJECT_DIR$/core/repositories/UserRepository.php" />
+        <option value="$PROJECT_DIR$/core/Repositories/UserRepository.php" />
+        <option value="$PROJECT_DIR$/core/Validators/UserValidator.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/DatabaseConnection/Database.php" />
+        <option value="$PROJECT_DIR$/core/App/Application.php" />
+        <option value="$PROJECT_DIR$/entities/User.php" />
+        <option value="$PROJECT_DIR$/core/Services/User/UserService.php" />
+        <option value="$PROJECT_DIR$/core/Services/User/UserServiceInterface.php" />
+        <option value="$PROJECT_DIR$/core/Session/SessionIterator.php" />
+        <option value="$PROJECT_DIR$/core/Exceptions/InvalidAppliedConfigException.php" />
+        <option value="$PROJECT_DIR$/core/Session/SessionInterface.php" />
+        <option value="$PROJECT_DIR$/core/Session/Session.php" />
       </list>
     </option>
   </component>
@@ -227,18 +401,18 @@
             <path>
               <item name="PulpFiction" type="b2602c69:ProjectViewProjectNode" />
               <item name="PulpFiction" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="core" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="PulpFiction" type="b2602c69:ProjectViewProjectNode" />
               <item name="PulpFiction" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="core" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Session" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="PulpFiction" type="b2602c69:ProjectViewProjectNode" />
               <item name="PulpFiction" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="image" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="entities" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -250,10 +424,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="SearchEverywhereHistoryKey" value="Resp&#9;FILE&#9;file:///var/www/PulpFiction/core/Response/Response.php" />
+    <property name="SearchEverywhereHistoryKey" value="SessionHandler&#9;FILE&#9;jar:///home/george/Downloads/PhpStorm-172.4155.41/plugins/php/lib/php.jar!/stubs/session/SessionHandler.php&#10;da&#9;FILE&#9;file:///var/www/PulpFiction/DatabaseConnection/Database.php&#10;Resp&#9;FILE&#9;file:///var/www/PulpFiction/core/Response/Response.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/BaseModel" />
       <recent name="$PROJECT_DIR$/core" />
       <recent name="$PROJECT_DIR$/core/BaseController" />
       <recent name="$PROJECT_DIR$/core/App" />
@@ -288,25 +463,25 @@
       <workItem from="1510823535070" duration="7000" />
       <workItem from="1514406679315" duration="657000" />
       <workItem from="1514407362058" duration="977000" />
-      <workItem from="1514408541308" duration="49090000" />
+      <workItem from="1514408541308" duration="61325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50731000" />
+    <option name="totallyTimeSpent" value="62966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1533" height="1175" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17677756" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17677756" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15329419" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298479" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24983692" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24983692" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -331,183 +506,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2184">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseConnection/ResultSetInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseConnection/PreparedStatementInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseConnection/PDOResultSet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseConnection/PreparedStatement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/user/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/user/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseConnection/DatabaseInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/265d6c3d-7b0d-434f-a372-5c0049311210/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Singleton.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="98" column="66" lean-forward="true" selection-start-line="98" selection-start-column="66" selection-end-line="98" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/services/User/UserService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding>
-            <element signature="e#49#70#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/services/User/UserServiceInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#76#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="265" column="9" lean-forward="false" selection-start-line="265" selection-start-column="9" selection-end-line="265" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/repositories/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Template/TemplateInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="804">
-          <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-754">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="e#36#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/SQLBuilder/SQLBuilder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1746">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1510265584000" expanded="true" signature="919:950" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1510265584000" expanded="true" signature="1470:1501" ph="SELECT * FRO... ${$tableName}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Reflection/Reflection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306">
@@ -526,26 +524,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/validators/UserValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/BaseController/BaseControllerInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseConnection/Database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -573,16 +555,6 @@
         <state relative-caret-position="234">
           <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/BaseController/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding>
-            <element signature="e#51#98#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -639,7 +611,7 @@
         <state relative-caret-position="152">
           <caret line="69" column="33" lean-forward="true" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
           <folding>
-            <element signature="e#45#75#0#PHP" expanded="true" />
+            <element signature="e#45#75#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,7 +621,7 @@
         <state relative-caret-position="780">
           <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
-            <element signature="e#36#73#0#PHP" expanded="true" />
+            <element signature="e#36#73#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -670,24 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/App/ApplicationInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="61" column="20" lean-forward="false" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
-          <folding>
-            <element signature="e#40#100#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/home/not_found.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -696,32 +650,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ImageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="e#42#72#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/Dispatch/Dispatcher.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
           <folding>
-            <element signature="e#45#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/App/Application.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="205" column="0" lean-forward="true" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#100#0#PHP" expanded="true" />
+            <element signature="e#45#91#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -736,25 +670,266 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/image/main-image-header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="182">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/BaseController/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <element signature="e#51#98#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/SecurityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="416">
+          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/xmlwriter/xmlwriter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="316" column="20" lean-forward="false" selection-start-line="316" selection-start-column="20" selection-end-line="316" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/php-activerecord/php-activerecord/lib/Serialization.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="301" column="30" lean-forward="false" selection-start-line="301" selection-start-column="30" selection-end-line="301" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_static.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-546">
+          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1118">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/queries/UserQuery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/queries/base/Query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-992">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Validators/UserValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/SQLBuilder/SQLBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-858">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1510265584000" expanded="true" signature="919:950" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1510265584000" expanded="true" signature="1470:1501" ph="SELECT * FRO... ${$tableName}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Repositories/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/BaseModel/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2366">
+          <caret line="91" column="27" lean-forward="true" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
+          <folding>
+            <element signature="e#36#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ImageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="e#42#72#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/App/ApplicationInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="958">
+          <caret line="38" column="38" lean-forward="true" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+          <folding>
+            <element signature="e#40#100#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/home/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        <state relative-caret-position="260">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entities/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Services/User/UserServiceInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Session/SessionIterator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DatabaseConnection/Database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/App/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="229" column="51" lean-forward="true" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
+          <folding>
+            <element signature="e#40#100#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Services/User/UserService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1872">
+          <caret line="72" column="20" lean-forward="true" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+          <folding>
+            <element signature="e#49#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/session/session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="275" column="9" lean-forward="false" selection-start-line="275" selection-start-column="9" selection-end-line="275" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Exceptions/InvalidAppliedConfigException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="258" column="6" lean-forward="false" selection-start-line="258" selection-start-column="6" selection-end-line="258" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/session/SessionHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2340">
+          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="672" column="9" lean-forward="false" selection-start-line="672" selection-start-column="9" selection-end-line="672" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Session/SessionInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Session/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="170" column="34" lean-forward="true" selection-start-line="170" selection-start-column="34" selection-end-line="170" selection-end-column="34" />
+          <folding>
+            <element signature="e#44#60#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

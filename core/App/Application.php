@@ -73,10 +73,11 @@ class Application implements ApplicationInterface
         $this->response   = $response;
         $this->template   = $template;
         $this->request    = $request;
-        PulpFiction::$app = $this;
 
         $this->dispatcher->loadController($this, 'home');
         $this->dispatcher->loadAction($this, 'index');
+
+        PulpFiction::$app = $this;
 
         $url = $this->parseUrl();
 
@@ -132,10 +133,9 @@ class Application implements ApplicationInterface
     }
 
     /**
-     * @param DatabaseInterface $database
-     * @return DatabaseInterface|null
+     * @return DatabaseInterface
      */
-    public function getDb(DatabaseInterface $database)
+    public static function getDb(): DatabaseInterface
     {
         return self::$db;
     }

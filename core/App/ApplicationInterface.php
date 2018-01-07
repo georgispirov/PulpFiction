@@ -26,10 +26,9 @@ interface ApplicationInterface
     public function getImageSourceFolder(): string;
 
     /**
-     * @param DatabaseInterface $database
-     * @return mixed
+     * @return DatabaseInterface
      */
-    public function getDb(DatabaseInterface $database);
+    public static function getDb(): DatabaseInterface;
 
     /**
      * @return ResponseInterface

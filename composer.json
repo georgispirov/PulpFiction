@@ -7,8 +7,5 @@
           "PulpFiction\\controller\\": "controller",
           "PulpFiction\\core\\service\\": "core/service"
       }
-  },
-  "require": {
-    "php-activerecord/php-activerecord": "^1.2"
   }
 }
