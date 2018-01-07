@@ -1,2 +1,7 @@
 .idea
+.idea/workspace.xml
+**/.idea/workspace.xml
+
+vendor
+
 DatabaseConnection/dbconfig.ini
