@@ -1,12 +1,12 @@
 <?php
 
-namespace PulpFiction\core;
+namespace PulpFiction\core\BaseModel;
 
 use PulpFiction\core\App\Application;
 use ReflectionClass;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
-abstract class BaseModel
+abstract class Model
 {
     /**
      * @var array $_errors

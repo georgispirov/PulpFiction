@@ -4,6 +4,7 @@ namespace PulpFiction\core\BaseController;
 
 use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\HttpHandler\Request;
+use PulpFiction\core\PulpFiction;
 use PulpFiction\core\Response\ResponseInterface;
 use PulpFiction\core\Template\TemplateInterface;
 
@@ -15,28 +16,23 @@ class Controller implements BaseControllerInterface
     private $template;
 
     /**
-     * @var HttpInterface
+     * @var HttpInterface $request
      */
     private $request;
 
     /**
-     * @var ResponseInterface
+     * @var ResponseInterface $response
      */
     private $response;
 
     /**
      * Controller constructor.
-     * @param TemplateInterface $template
-     * @param HttpInterface $request
-     * @param ResponseInterface $response
      */
-    public function __construct(TemplateInterface $template,
-                                HttpInterface $request,
-                                ResponseInterface $response)
+    public function __construct()
     {
-        $this->template = $template;
-        $this->request  = $request;
-        $this->response = $response;
+        $this->template = PulpFiction::$app->getTemplate();
+        $this->request  = PulpFiction::$app->getRequest();
+        $this->response = PulpFiction::$app->getResponse();
     }
 
     /**
@@ -131,5 +127,13 @@ class Controller implements BaseControllerInterface
     public function render(string $view, array $data = [])
     {
         return $this->getTemplate()->render($view, $data);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function attachServiceComponent()
+    {
+        // TODO: Implement attachServiceComponent() method.
     }
 }

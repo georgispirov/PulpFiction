@@ -2,7 +2,6 @@
 
 namespace PulpFiction\DatabaseConnection;
 
-
 use PDO;
 
 class Database implements DatabaseInterface
@@ -17,6 +16,9 @@ class Database implements DatabaseInterface
      */
     private $pdo;
 
+    /**
+     * Database constructor.
+     */
     private function __construct() {}
 
     /**
@@ -50,9 +52,7 @@ class Database implements DatabaseInterface
 
     public function getDB(): PDO
     {
-        if ($this->pdo instanceof PDO) {
-            return $this->pdo;
-        }
+        return $this->pdo;
     }
 
     public function query(string $query): PreparedStatementInterface

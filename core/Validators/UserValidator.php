@@ -2,13 +2,15 @@
 
 namespace PulpFiction\core\Validators;
 
+use PulpFiction\model\User;
+
 interface UserValidator
 {
-    public function validatePassword($user): bool;
+    public function validatePassword(User $user): bool;
 
-    public function validateConfirmPassword($user): bool;
+    public function validateConfirmPassword(User $user): bool;
 
-    public function comparePasswords($user);
+    public function comparePasswords(User $user);
 
-    public function validateUsername($user): bool;
+    public function validateUsername(User $user): bool;
 }

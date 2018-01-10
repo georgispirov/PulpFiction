@@ -1,14 +1,27 @@
 <?php
 
-namespace PulpFiction\core\service\User;
+namespace PulpFiction\services;
 
+use PulpFiction\core\Repositories\UserRepositoryInterface;
 use ReflectionObject;
-use PulpFiction\core\services\User\UserServiceInterface;
-use PulpFiction\core\validators\UserValidator;
-use PulpFiction\entities\User;
+use PulpFiction\model\User;
 
-class UserService implements UserServiceInterface, UserValidator
+class UserService implements UserServiceInterface
 {
+    /**
+     * @var UserRepositoryInterface
+     */
+    private $userRepository;
+
+//    /**
+//     * UserService constructor.
+//     * @param UserRepositoryInterface $userRepository
+//     */
+//    public function __construct(UserRepositoryInterface $userRepository)
+//    {
+//        $this->userRepository = $userRepository;
+//    }
+
     const ERROR_EXISTING_USER          = 'User with this username already exists!'   . PHP_EOL;
     const ERROR_EMPTY_PASSWORD         = 'Password cannot be blank!'                 . PHP_EOL;
     const ERROR_EMPTY_CONFIRM_PASSWORD = 'Confirm Password cannot be blank!'         . PHP_EOL;
@@ -21,21 +34,7 @@ class UserService implements UserServiceInterface, UserValidator
      */
     public function register(User $user)
     {
-        $this->validatePassword($user);
-        $this->validateConfirmPassword($user);
-        $this->comparePasswords($user);
-        $this->validateUsername($user);
 
-        if (!$user::findOneByUsername($user->getUsername()) instanceof Model) {
-            $user->password    = password_hash($user->password, PASSWORD_DEFAULT);
-            $user->re_password = password_hash($user->re_password, PASSWORD_DEFAULT);
-            if ($user->create($user)) {
-                return true;
-            }
-        }
-
-        $user->addError(self::ERROR_EXISTING_USER);
-        return false;
     }
 
     public function login(string $username, string $password): bool
@@ -46,7 +45,7 @@ class UserService implements UserServiceInterface, UserValidator
 
     public function editProfile(User $user): bool
     {
-        return $user->update($user);
+
     }
 
     public function viewAll(): \Generator

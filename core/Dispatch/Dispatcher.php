@@ -16,18 +16,35 @@ class Dispatcher implements DispatcherInterface
     public function loadController(ApplicationInterface $application,
                                    string $controller)
     {
-        $file_name = dirname(dirname(__DIR__)) . '/controller/' . ucfirst($controller) . 'Controller.php';
-        $fullPath = '\\PulpFiction\\controller\\' . ucfirst($controller) . 'Controller';
-        if (file_exists($file_name)) {
-            $className = (new ReflectionClass($fullPath))->getName();
-            $application->setController(new $className($application->getTemplate(),
-                                                       $application->getRequest(),
-                                                       $application->getResponse()
-                                        ));
+        $file = dirname(dirname(__DIR__)) . '/controller/' . ucfirst($controller) . 'Controller.php';
+        $fullyQualifiedClassName = '\\PulpFiction\\controller\\' . ucfirst($controller) . 'Controller';
+
+        if ( !file_exists($file) && !class_exists($fullyQualifiedClassName) ) {
+            return null;
+        }
+
+        $controllerReflectionClass = new ReflectionClass($fullyQualifiedClassName);
+        $classService    = $serviceFolder = null;
+
+        foreach ($controllerReflectionClass->getProperties() as $property) {
+            if (false !== strpos($property->getName(), 'Service')) {
+                $classService  = "\\PulpFiction\\services\\" . ucfirst($property->getName());
+            }
+        }
+
+        if (null === $classService) {
+            $application->setController($controllerReflectionClass->newInstance());
             return $application;
         }
 
-        return null;
+        $serviceReflection = new ReflectionClass($classService);
+
+        $application->setController($controllerReflectionClass->newInstanceArgs([
+                                                $serviceReflection->newInstanceWithoutConstructor()
+                                            ])
+                                   );
+
+        return $application;
     }
 
     /**

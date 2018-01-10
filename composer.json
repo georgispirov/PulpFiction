@@ -3,9 +3,9 @@
       "psr-4": {
           "PulpFiction\\DatabaseConnection\\": "DatabaseConnection/",
           "PulpFiction\\core\\": "core/",
-          "PulpFiction\\model\\": "model",
-          "PulpFiction\\controller\\": "controller",
-          "PulpFiction\\core\\service\\": "core/service"
+          "PulpFiction\\model\\": "model/",
+          "PulpFiction\\controller\\": "controller/",
+          "PulpFiction\\services\\": "services/"
       }
   }
 }

@@ -9,7 +9,6 @@ use PulpFiction\core\PulpFiction;
 use PulpFiction\core\Response\ResponseInterface;
 use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
-use ReflectionClass;
 
 class Application implements ApplicationInterface
 {
@@ -74,14 +73,12 @@ class Application implements ApplicationInterface
         $this->template   = $template;
         $this->request    = $request;
 
-        $this->dispatcher->loadController($this, 'home');
-        $this->dispatcher->loadAction($this, 'index');
-
         PulpFiction::$app = $this;
 
         $url = $this->parseUrl();
 
         if (false === $this->prepareApplication($url)) {
+            print_r(111);
             return $this->dispatcher->setNotFoundPage($this);
         }
 
@@ -103,17 +100,16 @@ class Application implements ApplicationInterface
     private function prepareApplication(array $params): bool
     {
         $isApplicationValid = true;
-        $homeController = (new ReflectionClass($this->getController()))->getName();
 
         $this->args = (sizeof($params) === 3) ? (array) end($params) : [];
 
         if (sizeof($params) == 0) {
-            $this->dispatcher->loadController($this, $homeController);
+            $this->dispatcher->loadController($this, 'home');
             $this->dispatcher->loadAction($this, $this->action);
         }
 
         if (sizeof($params) == 1) {
-            $this->dispatcher->loadController($this, $homeController);
+            $this->dispatcher->loadController($this, 'home');
             $isApplicationValid = false;
         }
 

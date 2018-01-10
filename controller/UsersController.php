@@ -1,10 +1,9 @@
 <?php
 
-namespace softuni\controller;
+namespace PulpFiction\controller;
 
-use PulpFiction\core\Controller;
+use PulpFiction\core\BaseController\Controller;
 use PulpFiction\core\HttpHandler\Request;
-use PulpFiction\core\service\User\UserService;
 use PulpFiction\model\User;
 
 class UsersController extends Controller
