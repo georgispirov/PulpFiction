@@ -2,7 +2,7 @@
 
 namespace PulpFiction\repositories;
 
-use PulpFiction\core\Repositories\UserRepositoryInterface;
+use PulpFiction\repositories\User\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface
 {

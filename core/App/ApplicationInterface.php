@@ -5,6 +5,7 @@ namespace PulpFiction\core\App;
 use PulpFiction\core\BaseController\BaseControllerInterface;
 use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\Response\ResponseInterface;
+use PulpFiction\core\Session\SessionInterface;
 use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
@@ -28,7 +29,7 @@ interface ApplicationInterface
     /**
      * @return DatabaseInterface
      */
-    public static function getDb(): DatabaseInterface;
+    public function getDb(): DatabaseInterface;
 
     /**
      * @return ResponseInterface
@@ -49,6 +50,11 @@ interface ApplicationInterface
      * @return HttpInterface
      */
     public function getRequest(): HttpInterface;
+
+    /**
+     * @return SessionInterface
+     */
+    public function getSession(): SessionInterface;
 
     /**
      * @return string

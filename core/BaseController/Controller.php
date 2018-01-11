@@ -6,6 +6,7 @@ use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\HttpHandler\Request;
 use PulpFiction\core\PulpFiction;
 use PulpFiction\core\Response\ResponseInterface;
+use PulpFiction\core\Session\SessionInterface;
 use PulpFiction\core\Template\TemplateInterface;
 
 class Controller implements BaseControllerInterface
@@ -26,6 +27,11 @@ class Controller implements BaseControllerInterface
     private $response;
 
     /**
+     * @var SessionInterface $session
+     */
+    private $session;
+
+    /**
      * Controller constructor.
      */
     public function __construct()
@@ -33,6 +39,7 @@ class Controller implements BaseControllerInterface
         $this->template = PulpFiction::$app->getTemplate();
         $this->request  = PulpFiction::$app->getRequest();
         $this->response = PulpFiction::$app->getResponse();
+        $this->session  = PulpFiction::$app->getSession();
     }
 
     /**

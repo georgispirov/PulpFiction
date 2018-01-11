@@ -16,15 +16,15 @@ class Dispatcher implements DispatcherInterface
     public function loadController(ApplicationInterface $application,
                                    string $controller)
     {
-        $file = dirname(dirname(__DIR__)) . '/controller/' . ucfirst($controller) . 'Controller.php';
+        $controllerFile = dirname(dirname(__DIR__)) . '/controller/' . ucfirst($controller) . 'Controller.php';
         $fullyQualifiedClassName = '\\PulpFiction\\controller\\' . ucfirst($controller) . 'Controller';
 
-        if ( !file_exists($file) && !class_exists($fullyQualifiedClassName) ) {
+        if ( !file_exists($controllerFile) && !class_exists($fullyQualifiedClassName) ) {
             return null;
         }
 
         $controllerReflectionClass = new ReflectionClass($fullyQualifiedClassName);
-        $classService    = $serviceFolder = null;
+        $classService = $classRepository = null;
 
         foreach ($controllerReflectionClass->getProperties() as $property) {
             if (false !== strpos($property->getName(), 'Service')) {
@@ -32,15 +32,23 @@ class Dispatcher implements DispatcherInterface
             }
         }
 
-        if (null === $classService) {
+        if (null === $classService || !class_exists($classService)) {
             $application->setController($controllerReflectionClass->newInstance());
             return $application;
         }
 
         $serviceReflection = new ReflectionClass($classService);
 
+        foreach ($serviceReflection->getProperties() as $repositoryProperty) {
+            if (false !== strpos($repositoryProperty->getName(), 'Repository')) {
+                $classRepository = "\\PulpFiction\\repositories\\" . ucfirst($repositoryProperty->getName());
+            }
+        }
+
+        $repositoryReflection = new ReflectionClass($classRepository);
+
         $application->setController($controllerReflectionClass->newInstanceArgs([
-                                                $serviceReflection->newInstanceWithoutConstructor()
+                                                $serviceReflection->newInstanceArgs([$repositoryReflection->newInstance()])
                                             ])
                                    );
 

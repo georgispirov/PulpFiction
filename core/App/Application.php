@@ -7,6 +7,7 @@ use PulpFiction\core\Dispatch\DispatcherInterface;
 use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\PulpFiction;
 use PulpFiction\core\Response\ResponseInterface;
+use PulpFiction\core\Session\SessionInterface;
 use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
@@ -54,31 +55,38 @@ class Application implements ApplicationInterface
     private $request;
 
     /**
+     * @var SessionInterface $session
+     */
+    private $session;
+
+    /**
      * Application constructor.
      * @param DatabaseInterface $database
      * @param DispatcherInterface $dispatcher
      * @param ResponseInterface $response
      * @param TemplateInterface $template
      * @param HttpInterface $request
+     * @param SessionInterface $session
      */
     public function __construct(DatabaseInterface $database,
                                 DispatcherInterface $dispatcher,
                                 ResponseInterface $response,
                                 TemplateInterface $template,
-                                HttpInterface $request)
+                                HttpInterface $request,
+                                SessionInterface $session)
     {
         self::$db         = $database;
         $this->dispatcher = $dispatcher;
         $this->response   = $response;
         $this->template   = $template;
         $this->request    = $request;
+        $this->session    = $session;
 
         PulpFiction::$app = $this;
 
         $url = $this->parseUrl();
 
         if (false === $this->prepareApplication($url)) {
-            print_r(111);
             return $this->dispatcher->setNotFoundPage($this);
         }
 
@@ -129,9 +137,29 @@ class Application implements ApplicationInterface
     }
 
     /**
+     * @param string $controller
+     * @param string $action
+     * @param array $args
+     * @return mixed
+     */
+    public function callAction(string $controller,
+                               string $action,
+                               array $args = [])
+    {
+        $this->controller = null;
+        $this->action     = null;
+        $this->args       = $args;
+
+        $this->dispatcher->loadController($this, $controller);
+        $this->dispatcher->loadAction($this, $action);
+
+        return $this->dispatcher->run($this);
+    }
+
+    /**
      * @return DatabaseInterface
      */
-    public static function getDb(): DatabaseInterface
+    public function getDb(): DatabaseInterface
     {
         return self::$db;
     }
@@ -193,31 +221,19 @@ class Application implements ApplicationInterface
     }
 
     /**
+     * @return SessionInterface
+     */
+    public function getSession(): SessionInterface
+    {
+        return $this->session;
+    }
+
+    /**
      * @return array
      */
     public function getRouteArguments(): array
     {
         return $this->args;
-    }
-
-    /**
-     * @param string $controller
-     * @param string $action
-     * @param array $args
-     * @return mixed
-     */
-    public function callAction(string $controller,
-                               string $action,
-                               array $args = [])
-    {
-        $this->controller = null;
-        $this->action     = null;
-        $this->args       = $args;
-
-        $this->dispatcher->loadController($this, $controller);
-        $this->dispatcher->loadAction($this, $action);
-
-        return $this->dispatcher->run($this);
     }
 
     /**

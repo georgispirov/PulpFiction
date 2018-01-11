@@ -2,7 +2,8 @@
 
 namespace PulpFiction\services;
 
-use PulpFiction\core\Repositories\UserRepositoryInterface;
+use PulpFiction\repositories\User\UserRepositoryInterface;
+use PulpFiction\services\IService\UserServiceInterface;
 use ReflectionObject;
 use PulpFiction\model\User;
 
@@ -13,14 +14,14 @@ class UserService implements UserServiceInterface
      */
     private $userRepository;
 
-//    /**
-//     * UserService constructor.
-//     * @param UserRepositoryInterface $userRepository
-//     */
-//    public function __construct(UserRepositoryInterface $userRepository)
-//    {
-//        $this->userRepository = $userRepository;
-//    }
+    /**
+     * UserService constructor.
+     * @param UserRepositoryInterface $userRepository
+     */
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
 
     const ERROR_EXISTING_USER          = 'User with this username already exists!'   . PHP_EOL;
     const ERROR_EMPTY_PASSWORD         = 'Password cannot be blank!'                 . PHP_EOL;

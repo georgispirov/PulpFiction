@@ -1,6 +1,6 @@
 <?php
 
-namespace PulpFiction\core\Repositories;
+namespace PulpFiction\repositories\User;
 
 interface UserRepositoryInterface
 {

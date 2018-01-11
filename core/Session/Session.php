@@ -17,6 +17,17 @@ class Session implements SessionInterface, IteratorAggregate, ArrayAccess, Count
      */
     private $sessionHandler;
 
+    /**
+     * Session constructor.
+     */
+    public function __construct()
+    {
+        $this->openSession();
+    }
+
+    /**
+     * @return bool
+     */
     public function isActive(): bool
     {
         return PHP_SESSION_ACTIVE === session_status();

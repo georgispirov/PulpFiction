@@ -1,6 +1,6 @@
 <?php
 
-namespace PulpFiction\services;
+namespace PulpFiction\services\IService;
 
 use PulpFiction\model\User;
 

@@ -4,7 +4,7 @@ namespace PulpFiction\controller;
 
 use PulpFiction\core\BaseController\Controller;
 use PulpFiction\model\User;
-use PulpFiction\services\UserServiceInterface;
+use PulpFiction\services\IService\UserServiceInterface;
 
 class SecurityController extends Controller
 {
