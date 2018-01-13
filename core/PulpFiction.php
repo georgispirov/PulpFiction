@@ -14,7 +14,7 @@ use PulpFiction\DatabaseConnection\Database;
 class PulpFiction implements PulpFictionInterface
 {
     /**
-     * @var \PulpFiction\core\App\ApplicationInterface $app
+     * @var \PulpFiction\core\App\ApplicationInterface|WebApplication $app
      */
     public static $app;
 
@@ -28,12 +28,12 @@ class PulpFiction implements PulpFictionInterface
         }
 
         return new WebApplication(
-                         Database::getConnection(),
-                         new Dispatcher(),
-                         new Response(),
-                         new Template(),
-                         new Request(),
-                         new Session()
-                       );
+                                  Database::getConnection(),
+                                  new Dispatcher(),
+                                  new Response(),
+                                  new Template(),
+                                  new Request(),
+                                  new Session()
+                                 );
     }
 }

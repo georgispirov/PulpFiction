@@ -3,7 +3,7 @@
 namespace PulpFiction\controller;
 
 use HttpInvalidParamException;
-use PulpFiction\core\BaseController\Controller;
+use PulpFiction\core\BaseController\web\Controller;
 use PulpFiction\core\PulpFiction;
 
 class ImageController extends Controller

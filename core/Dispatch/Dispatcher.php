@@ -2,7 +2,9 @@
 
 namespace PulpFiction\core\Dispatch;
 
+use InvalidArgumentException;
 use PulpFiction\core\App\ApplicationInterface;
+use PulpFiction\core\BaseController;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -96,5 +98,49 @@ class Dispatcher implements DispatcherInterface
     public function setNotFoundPage(ApplicationInterface $application)
     {
         return $application->getController()->render('home/not_found');
+    }
+
+    /**
+     * @param ApplicationInterface $consoleApp
+     * @param string $controller
+     * @param string $action
+     * @param array $routeParams
+     * @return ApplicationInterface
+     */
+    public function invokeConsoleApplication(ApplicationInterface $consoleApp,
+                                             string $controller,
+                                             string $action,
+                                             array $routeParams): ApplicationInterface
+    {
+        $consoleControllerName = '\\PulpFiction\\controller\\console\\' . ucfirst($controller) . 'Controller';
+        if ( !class_exists($consoleControllerName) ) {
+            throw new InvalidArgumentException('The console controller does not exists.');
+        }
+
+        /* @var BaseController $consoleController */
+        $consoleController = (new ReflectionClass($consoleControllerName))->newInstance();
+
+        if ( !method_exists($consoleController, $action) ) {
+            throw new InvalidArgumentException('Requested console action does not exists.');
+        }
+
+        $consoleApp->setController($consoleController);
+        $consoleApp->setAction($action);
+
+        return $consoleApp;
+    }
+
+    /**
+     * @param string $params
+     * @return array
+     */
+    public function resolveConsoleApplicationParams(string $params): array
+    {
+        $exploded = explode('/', $params);
+        return [
+            'controller' => reset($exploded),
+            'action'     => $exploded[1],
+            'params'     => isset($exploded[2]) ? [$exploded[2]] : []
+        ];
     }
 }

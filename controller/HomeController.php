@@ -2,7 +2,7 @@
 
 namespace PulpFiction\Controller;
 
-use PulpFiction\core\BaseController\Controller;
+use PulpFiction\core\BaseController\web\Controller;
 
 class HomeController extends Controller
 {

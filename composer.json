@@ -5,6 +5,8 @@
           "PulpFiction\\core\\": "core/",
           "PulpFiction\\model\\": "model/",
           "PulpFiction\\controller\\": "controller/",
+          "PulpFiction\\controller\\web\\": "controller/web/",
+          "PulpFiction\\controller\\console\\": "controller/console/",
           "PulpFiction\\services\\": "services/",
           "PulpFiction\\repositories\\": "repositories/"
       }

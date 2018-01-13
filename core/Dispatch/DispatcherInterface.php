@@ -7,6 +7,21 @@ use PulpFiction\core\App\ApplicationInterface;
 interface DispatcherInterface
 {
     /**
+    public function resolveConsoleApplicationParams(): array;
+
+    /**
+     * @param ApplicationInterface $consoleApp
+     * @param string $controller
+     * @param string $action
+     * @param array $routeParams
+     * @return ApplicationInterface
+     */
+    public function invokeConsoleApplication(ApplicationInterface $consoleApp,
+                                             string $controller,
+                                             string $action,
+                                             array $routeParams): ApplicationInterface;
+
+    /**
      * @param ApplicationInterface $application
      * @param string $controller
      * @return mixed

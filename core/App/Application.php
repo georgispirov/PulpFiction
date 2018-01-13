@@ -2,7 +2,8 @@
 
 namespace PulpFiction\core\App;
 
-use PulpFiction\core\BaseController\BaseControllerInterface;
+use InvalidArgumentException;
+use PulpFiction\core\BaseController;
 use PulpFiction\core\Dispatch\DispatcherInterface;
 use PulpFiction\core\PulpFiction;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
@@ -10,7 +11,7 @@ use PulpFiction\DatabaseConnection\DatabaseInterface;
 class Application implements ApplicationInterface
 {
     /**
-     * @var BaseControllerInterface $controller
+     * @var BaseController $controller
      */
     protected $controller;
 
@@ -47,6 +48,21 @@ class Application implements ApplicationInterface
         $this->dispatcher = $dispatcher;
 
         PulpFiction::$app = $this;
+
+        if (Application::isConsole()) {
+            $consoleRoute = trim(fgets(STDIN));
+
+            if (null === $consoleRoute) {
+                throw new InvalidArgumentException('Console Application must have controller/action route applied.');
+            }
+
+            $consoleParams = $this->dispatcher->resolveConsoleApplicationParams($consoleRoute);
+            $this->dispatcher->invokeConsoleApplication($this, $consoleParams['controller'],
+                                                               $consoleParams['action'],
+                                                               $consoleParams['params']);
+
+            return $this->dispatcher->run($this);
+        }
 
         $url = $this->parseUrl();
 
@@ -153,17 +169,17 @@ class Application implements ApplicationInterface
     }
 
     /**
-     * @param BaseControllerInterface $controller
+     * @param BaseController $controller
      */
-    public function setController(BaseControllerInterface $controller)
+    public function setController(BaseController $controller)
     {
         $this->controller = $controller;
     }
 
     /**
-     * @return BaseControllerInterface
+     * @return BaseController
      */
-    public function getController(): BaseControllerInterface
+    public function getController(): BaseController
     {
         return $this->controller;
     }

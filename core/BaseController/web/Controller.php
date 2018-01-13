@@ -1,7 +1,8 @@
 <?php
 
-namespace PulpFiction\core\BaseController;
+namespace PulpFiction\core\BaseController\web;
 
+use PulpFiction\core\BaseController;
 use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\HttpHandler\Request;
 use PulpFiction\core\PulpFiction;
@@ -9,7 +10,7 @@ use PulpFiction\core\Response\ResponseInterface;
 use PulpFiction\core\Session\SessionInterface;
 use PulpFiction\core\Template\TemplateInterface;
 
-class Controller implements BaseControllerInterface
+class Controller extends BaseController implements BaseWebControllerInterface
 {
     /**
      * @var TemplateInterface $template

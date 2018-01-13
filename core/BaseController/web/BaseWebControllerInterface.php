@@ -1,8 +1,8 @@
 <?php
 
-namespace PulpFiction\core\BaseController;
+namespace PulpFiction\core\BaseController\web;
 
-interface BaseControllerInterface
+interface BaseWebControllerInterface
 {
     /**
      * @param string $route

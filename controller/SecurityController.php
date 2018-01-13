@@ -2,7 +2,7 @@
 
 namespace PulpFiction\controller;
 
-use PulpFiction\core\BaseController\Controller;
+use PulpFiction\core\BaseController\web\Controller;
 use PulpFiction\model\User;
 use PulpFiction\services\IService\UserServiceInterface;
 

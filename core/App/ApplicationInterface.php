@@ -2,7 +2,8 @@
 
 namespace PulpFiction\core\App;
 
-use PulpFiction\core\BaseController\BaseControllerInterface;
+use PulpFiction\core\BaseController;
+use PulpFiction\core\BaseController\web\Controller;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 interface ApplicationInterface
@@ -33,9 +34,9 @@ interface ApplicationInterface
     public function getDb(): DatabaseInterface;
 
     /**
-     * @return BaseControllerInterface
+     * @return BaseController|Controller
      */
-    public function getController(): BaseControllerInterface;
+    public function getController();
 
     /**
      * @return string
@@ -43,9 +44,9 @@ interface ApplicationInterface
     public function getAction(): string;
 
     /**
-     * @param BaseControllerInterface $controller
+     * @param BaseController $controller
      */
-    public function setController(BaseControllerInterface $controller);
+    public function setController(BaseController $controller);
 
     /**
      * @param string $action
