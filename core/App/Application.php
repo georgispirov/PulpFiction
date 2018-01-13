@@ -4,11 +4,7 @@ namespace PulpFiction\core\App;
 
 use PulpFiction\core\BaseController\BaseControllerInterface;
 use PulpFiction\core\Dispatch\DispatcherInterface;
-use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\PulpFiction;
-use PulpFiction\core\Response\ResponseInterface;
-use PulpFiction\core\Session\SessionInterface;
-use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 class Application implements ApplicationInterface
@@ -38,49 +34,17 @@ class Application implements ApplicationInterface
      */
     private $dispatcher;
 
-    /**
-     * @var ResponseInterface $response
-     */
-
-    private $response;
-
-    /**
-     * @var TemplateInterface $template
-     */
-    private $template;
-
-    /**
-     * @var HttpInterface $request
-     */
-    private $request;
-
-    /**
-     * @var SessionInterface $session
-     */
-    private $session;
 
     /**
      * Application constructor.
      * @param DatabaseInterface $database
      * @param DispatcherInterface $dispatcher
-     * @param ResponseInterface $response
-     * @param TemplateInterface $template
-     * @param HttpInterface $request
-     * @param SessionInterface $session
      */
     public function __construct(DatabaseInterface $database,
-                                DispatcherInterface $dispatcher,
-                                ResponseInterface $response,
-                                TemplateInterface $template,
-                                HttpInterface $request,
-                                SessionInterface $session)
+                                DispatcherInterface $dispatcher)
     {
         self::$db         = $database;
         $this->dispatcher = $dispatcher;
-        $this->response   = $response;
-        $this->template   = $template;
-        $this->request    = $request;
-        $this->session    = $session;
 
         PulpFiction::$app = $this;
 
@@ -157,6 +121,14 @@ class Application implements ApplicationInterface
     }
 
     /**
+     * @return bool
+     */
+    public static function isConsole(): bool
+    {
+        return php_sapi_name() == 'cli';
+    }
+
+    /**
      * @return DatabaseInterface
      */
     public function getDb(): DatabaseInterface
@@ -194,38 +166,6 @@ class Application implements ApplicationInterface
     public function getController(): BaseControllerInterface
     {
         return $this->controller;
-    }
-
-    /**
-     * @return ResponseInterface
-     */
-    public function getResponse(): ResponseInterface
-    {
-        return $this->response;
-    }
-
-    /**
-     * @return TemplateInterface
-     */
-    public function getTemplate(): TemplateInterface
-    {
-        return $this->template;
-    }
-
-    /**
-     * @return HttpInterface
-     */
-    public function getRequest(): HttpInterface
-    {
-        return $this->request;
-    }
-
-    /**
-     * @return SessionInterface
-     */
-    public function getSession(): SessionInterface
-    {
-        return $this->session;
     }
 
     /**

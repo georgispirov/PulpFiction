@@ -2,9 +2,7 @@
 
 namespace PulpFiction\core\BaseModel;
 
-use PulpFiction\core\App\Application;
 use ReflectionClass;
-use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 abstract class Model
 {
@@ -12,17 +10,6 @@ abstract class Model
      * @var array $_errors
      */
     private $_errors;
-
-    /**
-     * @return null|DatabaseInterface
-     */
-    protected function getDb()
-    {
-        if (Application::getDb() instanceof DatabaseInterface) {
-            return Application::getDb();
-        }
-        return null;
-    }
 
     /**
      * @return string

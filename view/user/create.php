@@ -6,7 +6,7 @@
         <script type="text/javascript" src="/js/user.js"></script>
     </head>
     <body>
-        <form action="/users/create" id="create-user-form" method="POST" onsubmit="event.preventDefault();">
+        <form action="/security/register" id="create-user-form" method="POST">
             <label for="username">Username: </label>
             <input type="text" name="username" id="username"> <br/>
 
@@ -16,7 +16,7 @@
             <label for="password">Password: </label>
             <input type="password" name="password" id="password"> <br/>
 
-            <label for="re-password">Confirm Password: </label>
+            <label for="re_password">Confirm Password: </label>
             <input type="password" name="re_password" id="re_password"> <br/>
 
             <input type="submit" name="create-user-button" value="Register">

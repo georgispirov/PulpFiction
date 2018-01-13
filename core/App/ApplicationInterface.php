@@ -3,14 +3,15 @@
 namespace PulpFiction\core\App;
 
 use PulpFiction\core\BaseController\BaseControllerInterface;
-use PulpFiction\core\HttpHandler\HttpInterface;
-use PulpFiction\core\Response\ResponseInterface;
-use PulpFiction\core\Session\SessionInterface;
-use PulpFiction\core\Template\TemplateInterface;
 use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 interface ApplicationInterface
 {
+    /**
+     * @return bool
+     */
+    public static function isConsole(): bool;
+
     /**
      * @return string
      */
@@ -32,29 +33,9 @@ interface ApplicationInterface
     public function getDb(): DatabaseInterface;
 
     /**
-     * @return ResponseInterface
-     */
-    public function getResponse(): ResponseInterface;
-
-    /**
      * @return BaseControllerInterface
      */
     public function getController(): BaseControllerInterface;
-
-    /**
-     * @return TemplateInterface
-     */
-    public function getTemplate(): TemplateInterface;
-
-    /**
-     * @return HttpInterface
-     */
-    public function getRequest(): HttpInterface;
-
-    /**
-     * @return SessionInterface
-     */
-    public function getSession(): SessionInterface;
 
     /**
      * @return string

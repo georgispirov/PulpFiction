@@ -1,5 +1,5 @@
 <?php
-    /* @var $this \PulpFiction\core\Template\Template */
+    /* @var $this \PulpFiction\Controller\HomeController */
 ?>
 
 <head>

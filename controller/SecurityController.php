@@ -31,7 +31,10 @@ class SecurityController extends Controller
     public function register()
     {
         $user = new User();
-        return $this->render('/user/create', compact('user'));
+        if ($this->getRequest()->isPostRequest()) {
+            print_r($_POST);
+        }
+        return $this->render('/user/create');
     }
 
     public function logout()

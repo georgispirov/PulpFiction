@@ -3,6 +3,7 @@
 namespace PulpFiction\core;
 
 use PulpFiction\core\App\Application;
+use PulpFiction\core\App\ApplicationInterface;
 use PulpFiction\core\Dispatch\Dispatcher;
 use PulpFiction\core\HttpHandler\Request;
 use PulpFiction\core\Response\Response;
@@ -18,11 +19,15 @@ class PulpFiction implements PulpFictionInterface
     public static $app;
 
     /**
-     * @return mixed
+     * @return ApplicationInterface
      */
     public function bootstrap()
     {
-        new Application(
+        if (Application::isConsole()) {
+            return new ConsoleApplication(Database::getConnection(), new Dispatcher());
+        }
+
+        return new WebApplication(
                          Database::getConnection(),
                          new Dispatcher(),
                          new Response(),
