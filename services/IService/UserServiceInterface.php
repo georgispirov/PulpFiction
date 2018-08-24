@@ -12,7 +12,7 @@ interface UserServiceInterface
 
     public function editProfile(User $user): bool;
 
-    public function viewAll(): \Generator;
+    public function viewAll(): \TableGenerator;
 
     public function isLogged(): bool;
 

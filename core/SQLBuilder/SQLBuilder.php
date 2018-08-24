@@ -29,7 +29,7 @@ class SQLBuilder implements SQLBuilderInterface
         $this->db = $database;
     }
 
-    public function build(string $sql = null): \Generator {}
+    public function build(string $sql = null): \TableGenerator {}
 
     /**
      * @param string|null $tableName

@@ -49,7 +49,7 @@ class UserService implements UserServiceInterface
 
     }
 
-    public function viewAll(): \Generator
+    public function viewAll(): \TableGenerator
     {
 
     }

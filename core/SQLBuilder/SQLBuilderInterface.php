@@ -5,7 +5,7 @@ namespace softuni\core\SQLBuilder;
 
 interface SQLBuilderInterface
 {
-    public function build(string $sql = null): \Generator;
+    public function build(string $sql = null): \TableGenerator;
 
     public function queryOne(string $tableName = null, array $params = []);
 

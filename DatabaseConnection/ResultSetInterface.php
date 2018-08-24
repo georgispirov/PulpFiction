@@ -13,4 +13,10 @@ interface ResultSetInterface
      * @return boolean|Model
      */
     public function fetch(string $className = null);
+
+    public function fetchAllAssociative();
+
+    public function fetchColumn();
+
+    public function fetchAllColumns();
 }

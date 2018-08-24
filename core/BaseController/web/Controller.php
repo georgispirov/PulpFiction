@@ -136,12 +136,4 @@ class Controller extends BaseController implements BaseWebControllerInterface
     {
         return $this->getTemplate()->render($view, $data);
     }
-
-    /**
-     * @return mixed
-     */
-    public function attachServiceComponent()
-    {
-        // TODO: Implement attachServiceComponent() method.
-    }
 }
