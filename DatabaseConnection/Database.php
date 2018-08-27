@@ -50,6 +50,9 @@ class Database implements DatabaseInterface
         return self::setConnection();
     }
 
+    /**
+     * @return PDO
+     */
     public function getDB(): PDO
     {
         return $this->pdo;

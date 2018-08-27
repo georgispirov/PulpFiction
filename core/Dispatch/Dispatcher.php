@@ -28,14 +28,21 @@ class Dispatcher implements DispatcherInterface
         $controllerReflectionClass = new ReflectionClass($fullyQualifiedClassName);
         $classService = $classRepository = null;
 
+        $DIServiceContainerClasses = [];
+
         foreach ($controllerReflectionClass->getProperties() as $property) {
+            if (preg_match('/@var\s+([^\s]+)/', $property->getDocComment(), $matches)) {
+                list(, $type) = $matches;
+                $type = 'PulpFiction\\services\\' .$type;
+                $DIServiceContainerClasses[] = new $type();
+            }
             if (false !== strpos($property->getName(), 'Service')) {
                 $classService  = "\\PulpFiction\\services\\" . ucfirst($property->getName());
             }
         }
 
         if (null === $classService || !class_exists($classService)) {
-            $application->setController($controllerReflectionClass->newInstance());
+            $application->setController($controllerReflectionClass->newInstanceArgs($DIServiceContainerClasses));
             return $application;
         }
 

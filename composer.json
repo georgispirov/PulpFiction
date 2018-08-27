@@ -8,7 +8,8 @@
           "PulpFiction\\controller\\web\\": "controller/web/",
           "PulpFiction\\controller\\console\\": "controller/console/",
           "PulpFiction\\services\\": "services/",
-          "PulpFiction\\repositories\\": "repositories/"
+          "PulpFiction\\repositories\\": "repositories/",
+          "PulpFiction\\DTOGenerator\\": "core/DTOGenerator/"
       }
   }
 }

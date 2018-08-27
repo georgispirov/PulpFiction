@@ -10,6 +10,11 @@ class Request extends HeaderMap implements HttpInterface
     private $_headerMap;
 
     /**
+     * @var array $_queryParams
+     */
+    private $_queryParams;
+
+    /**
      * @return HeaderMapInterface
      */
     public function getRequestHeaders(): HeaderMapInterface
@@ -88,5 +93,17 @@ class Request extends HeaderMap implements HttpInterface
     public function getContentType(): string
     {
         return ($_SERVER['CONTENT_TYPE']) ?? $this->_headerMap->get('Content-Type');
+    }
+
+    /**
+     * @return array
+     */
+    public function getQueryParams(): array
+    {
+        if ($this->_queryParams === null) {
+            $this->_queryParams = $_GET;
+        }
+
+        return $this->_queryParams;
     }
 }

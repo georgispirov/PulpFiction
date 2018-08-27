@@ -53,4 +53,9 @@ interface HttpInterface
      * @return string
      */
     public function getContentType(): string;
+
+    /**
+     * @return array
+     */
+    public function getQueryParams(): array;
 }
