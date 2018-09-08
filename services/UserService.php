@@ -2,23 +2,22 @@
 
 namespace PulpFiction\services;
 
-use PulpFiction\repositories\User\UserRepositoryInterface;
-use PulpFiction\services\IService\UserServiceInterface;
+use PulpFiction\models\UsersDTO\UsersDTO;
+use PulpFiction\repositories\UserRepository;
 use ReflectionObject;
-use PulpFiction\model\User;
 
-class UserService implements UserServiceInterface
+class UserService
 {
     /**
-     * @var UserRepositoryInterface
+     * @var UserRepository
      */
     private $userRepository;
 
     /**
      * UserService constructor.
-     * @param UserRepositoryInterface $userRepository
+     * @param UserRepository $userRepository
      */
-    public function __construct(UserRepositoryInterface $userRepository)
+    public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
     }
@@ -29,11 +28,7 @@ class UserService implements UserServiceInterface
     const ERROR_PASSWORDS_MISMATCHED   = 'Password and Confirm Password mismatched!' . PHP_EOL;
     const ERROR_EMPTY_USERNAME         = 'Username cannot be blank!'                 . PHP_EOL;
 
-    /**
-     * @param User $user
-     * @return bool
-     */
-    public function register(User $user)
+    public function register(UsersDTO $user)
     {
 
     }
@@ -44,7 +39,7 @@ class UserService implements UserServiceInterface
         return false;
     }
 
-    public function editProfile(User $user): bool
+    public function editProfile(UsersDTO $user): bool
     {
 
     }
@@ -59,12 +54,12 @@ class UserService implements UserServiceInterface
 
     }
 
-    public function getCurrentUser(): User
+    public function getCurrentUser(): UsersDTO
     {
 
     }
 
-    public function validatePassword(User $user): bool
+    public function validatePassword(UsersDTO $user): bool
     {
         if ($user->getPassword() === null) {
             $user->addError(self::ERROR_EMPTY_PASSWORD);

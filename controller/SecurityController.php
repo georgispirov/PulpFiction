@@ -3,21 +3,21 @@
 namespace PulpFiction\controller;
 
 use PulpFiction\core\BaseController\web\Controller;
-use PulpFiction\model\User;
-use PulpFiction\services\IService\UserServiceInterface;
+use PulpFiction\models\UsersDTO;
+use PulpFiction\services\UserService;
 
 class SecurityController extends Controller
 {
     /**
-     * @var UserServiceInterface $userService
+     * @var UserService $userService
      */
     public $userService;
 
     /**
      * User constructor.
-     * @param UserServiceInterface $userService
+     * @param UserService $userService
      */
-    public function __construct(UserServiceInterface $userService)
+    public function __construct(UserService $userService)
     {
         $this->userService = $userService;
         parent::__construct();
@@ -30,7 +30,7 @@ class SecurityController extends Controller
 
     public function register()
     {
-        $user = new User();
+//        $user = new UsersDTO();
         if ($this->getRequest()->isPostRequest()) {
             print_r($_POST);
         }

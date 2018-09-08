@@ -50,7 +50,6 @@ SQL;
 
             $this->_generatorService
                  ->generateClassDependsOnTable(
-                $queryParams['table'],
                 array_combine($columnNames, $columnTypes),
                 $queryParams['model-name'],
                 $queryParams['namespace']

@@ -10,25 +10,18 @@ class TableGeneratorService
         return $dataTypes[$type];
     }
 
-    public function generateClassDependsOnTable(string $tableName,
-                                                array $mappedFields,
+    public function generateClassDependsOnTable(array $mappedFields,
                                                 string $dtoName,
                                                 string $nameSpace)
     {
-        $tableName = $this->beautifyClassName($tableName);
-        $file = $this->createClassFile($tableName);
+        $file = $this->createClassFile($dtoName);
         $filePath = $this->generateAppropriateClass($file, $dtoName, $nameSpace,$mappedFields);
         exec("sudo chmod 775 $filePath");
     }
 
-    private function beautifyClassName(string $tableName)
+    private function createClassFile(string $dtoName)
     {
-        return ucfirst($tableName);
-    }
-
-    private function createClassFile(string $tableName)
-    {
-        $fileName = $_SERVER['DOCUMENT_ROOT'] . '/../model/' . "{$tableName}.php";
+        $fileName = $_SERVER['DOCUMENT_ROOT'] . '/../model/' . "{$dtoName}.php";
         $resource = fopen($fileName, 'w+');
         return $resource;
     }

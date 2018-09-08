@@ -26,42 +26,40 @@ class Dispatcher implements DispatcherInterface
         }
 
         $controllerReflectionClass = new ReflectionClass($fullyQualifiedClassName);
-        $classService = $classRepository = null;
+        /* @var BaseController $controllerClass */
+        $controllerClass = $this->autoloadDIContainer($controllerReflectionClass);
 
-        $DIServiceContainerClasses = [];
-
-        foreach ($controllerReflectionClass->getProperties() as $property) {
-            if (preg_match('/@var\s+([^\s]+)/', $property->getDocComment(), $matches)) {
-                list(, $type) = $matches;
-                $type = 'PulpFiction\\services\\' .$type;
-                $DIServiceContainerClasses[] = new $type();
-            }
-            if (false !== strpos($property->getName(), 'Service')) {
-                $classService  = "\\PulpFiction\\services\\" . ucfirst($property->getName());
-            }
-        }
-
-        if (null === $classService || !class_exists($classService)) {
-            $application->setController($controllerReflectionClass->newInstanceArgs($DIServiceContainerClasses));
-            return $application;
-        }
-
-        $serviceReflection = new ReflectionClass($classService);
-
-        foreach ($serviceReflection->getProperties() as $repositoryProperty) {
-            if (false !== strpos($repositoryProperty->getName(), 'Repository')) {
-                $classRepository = "\\PulpFiction\\repositories\\" . ucfirst($repositoryProperty->getName());
-            }
-        }
-
-        $repositoryReflection = new ReflectionClass($classRepository);
-
-        $application->setController($controllerReflectionClass->newInstanceArgs([
-                                                $serviceReflection->newInstanceArgs([$repositoryReflection->newInstance()])
-                                            ])
-                                   );
+        $application->setController($controllerClass);
 
         return $application;
+    }
+
+    private function autoloadDIContainer(ReflectionClass $class)
+    {
+        $DIServiceContainerClasses = [];
+        $DIRepositoryContainerClasses = [];
+
+        if ( empty($class->getConstructor()->getParameters()) ) {
+            return $class->newInstance();
+        }
+
+        foreach ($class->getConstructor()->getParameters() as $controllerParams) {
+            $serviceReflection = new ReflectionClass($controllerParams->getClass()->getName());
+
+            if ( !$serviceReflection || !$serviceReflection->getConstructor() ) {
+                $DIServiceContainerClasses[] = $serviceReflection->newInstance();
+                continue;
+            }
+
+            foreach ($serviceReflection->getConstructor()->getParameters() as $serviceParams) {
+                $repositoryClass = $serviceParams->getClass()->getName();
+                $DIRepositoryContainerClasses[] = new $repositoryClass();
+            }
+
+            $DIServiceContainerClasses[] = $serviceReflection->newInstanceArgs($DIRepositoryContainerClasses);
+        }
+
+        return $class->newInstanceArgs($DIServiceContainerClasses);
     }
 
     /**

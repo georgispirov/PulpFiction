@@ -50,7 +50,7 @@
         source: '/table/get',
         select: function (event, ui) {
             let modelName = $('#model-name').val(ui.item.value.charAt(0).toUpperCase() + ui.item.value.slice(1) + 'DTO');
-            $('#namespace').val('PulpFiction\\models\\' + modelName.val());
+            $('#namespace').val('PulpFiction\\models');
         }
     });
 </script>

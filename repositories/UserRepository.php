@@ -2,9 +2,7 @@
 
 namespace PulpFiction\repositories;
 
-use PulpFiction\repositories\User\UserRepositoryInterface;
-
-class UserRepository implements UserRepositoryInterface
+class UserRepository
 {
     public function update($user): bool
     {
