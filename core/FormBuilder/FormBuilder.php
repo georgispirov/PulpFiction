@@ -2,6 +2,7 @@
 
 namespace PulpFiction\core\FormBuilder;
 
+use PulpFiction\core\BaseController\web\BaseWebControllerInterface;
 use PulpFiction\core\FormBuilder\FormFields\DropDownList;
 use PulpFiction\core\PulpFiction;
 use PulpFiction\model\base\BaseDTO;

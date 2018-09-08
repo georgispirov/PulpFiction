@@ -136,4 +136,9 @@ class Controller extends BaseController implements BaseWebControllerInterface
     {
         return $this->getTemplate()->render($view, $data);
     }
+
+    public function getCurrentUrl()
+    {
+        return $_SERVER['REQUEST_URI'];
+    }
 }
