@@ -1,8 +1,10 @@
 <?php
 
-namespace PulpFiction\models;
+namespace PulpFiction\model;
 
-class UsersDTO 
+use PulpFiction\model\base\BaseDTO;
+
+class UsersDTO extends BaseDTO
 {
 
     /**
