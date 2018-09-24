@@ -11,5 +11,8 @@
           "PulpFiction\\repositories\\": "repositories/",
           "PulpFiction\\DTOGenerator\\": "core/DTOGenerator/"
       }
+  },
+  "require": {
+    "php-activerecord/php-activerecord": "^1.2"
   }
 }

@@ -37,7 +37,7 @@ class TableGeneratorService
 
 namespace $nameSpace;
 
-class $dtoName 
+class $dtoName extends \ActiveRecord\Model
 {
 $properties
 } 

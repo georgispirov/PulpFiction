@@ -2,7 +2,7 @@
 
 namespace PulpFiction\core\FormBuilder\FormFields;
 
-use PulpFiction\model\base\BaseDTO;
+use ActiveRecord\Model;
 
 class DropDownList extends BaseFormField
 {
@@ -15,11 +15,11 @@ class DropDownList extends BaseFormField
      * DropDownList constructor.
      * @param array $items
      * @param string $selected
-     * @param BaseDTO $model
+     * @param Model $model
      */
     public function __construct(array $items,
                                 string $selected = '',
-                                BaseDTO $model)
+                                Model $model)
     {
         $this->_formName = $this->getModelFormPrefix($model);
         $this->_items    = $items;

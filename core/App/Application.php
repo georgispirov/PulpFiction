@@ -28,7 +28,7 @@ class Application implements ApplicationInterface
     /**
      * @var DatabaseInterface $db
      */
-    private static $db;
+    public $db;
 
     /**
      * @var DispatcherInterface $dispatcher
@@ -44,7 +44,7 @@ class Application implements ApplicationInterface
     public function __construct(DatabaseInterface $database,
                                 DispatcherInterface $dispatcher)
     {
-        self::$db         = $database;
+        $this->db         = $database;
         $this->dispatcher = $dispatcher;
 
         PulpFiction::$app = $this;
@@ -149,7 +149,7 @@ class Application implements ApplicationInterface
      */
     public function getDb(): DatabaseInterface
     {
-        return self::$db;
+        return $this->db;
     }
 
     /**

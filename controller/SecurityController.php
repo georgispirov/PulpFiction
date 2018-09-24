@@ -3,7 +3,7 @@
 namespace PulpFiction\controller;
 
 use PulpFiction\core\BaseController\web\Controller;
-use PulpFiction\model\UsersDTO;
+use PulpFiction\model\Users;
 use PulpFiction\services\UserService;
 
 class SecurityController extends Controller
@@ -30,7 +30,8 @@ class SecurityController extends Controller
 
     public function register()
     {
-        $model = new UsersDTO();
+        $model = Users::findAllAsArray();
+        var_dump($model);
         if ($this->getRequest()->isPostRequest()) {
             print_r($_POST);
         }

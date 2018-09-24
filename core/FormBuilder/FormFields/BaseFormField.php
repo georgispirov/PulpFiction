@@ -2,7 +2,7 @@
 
 namespace PulpFiction\core\FormBuilder\FormFields;
 
-use PulpFiction\model\base\BaseDTO;
+use ActiveRecord\Model;
 use ReflectionClass;
 
 abstract class BaseFormField
@@ -13,10 +13,10 @@ abstract class BaseFormField
     protected $_formName;
 
     /**
-     * @param BaseDTO $model
+     * @param Model $model
      * @return string
      */
-    protected function getModelFormPrefix(BaseDTO $model)
+    protected function getModelFormPrefix(Model $model)
     {
         return (new ReflectionClass($model))->getShortName();
     }

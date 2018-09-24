@@ -2,10 +2,9 @@
 
 namespace PulpFiction\core\FormBuilder;
 
-use PulpFiction\core\BaseController\web\BaseWebControllerInterface;
+use ActiveRecord\Model;
 use PulpFiction\core\FormBuilder\FormFields\DropDownList;
 use PulpFiction\core\PulpFiction;
-use PulpFiction\model\base\BaseDTO;
 
 class FormBuilder
 {
@@ -30,12 +29,12 @@ class FormBuilder
     }
 
     /**
-     * @param BaseDTO $model
+     * @param Model $model
      * @param array $items
      * @param string $selected
      * @return DropDownList
      */
-    public function dropDownList(BaseDTO $model,
+    public function dropDownList(Model $model,
                                  array $items,
                                  string $selected = '')
     {

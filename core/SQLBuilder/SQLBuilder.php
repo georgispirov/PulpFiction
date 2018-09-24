@@ -2,34 +2,27 @@
 
 namespace softuni\core\SQLBuilder;
 
-use softuni\core\Model;
-use softuni\DatabaseConnection\Database;
-use softuni\DatabaseConnection\DatabaseInterface;
+use PulpFiction\DatabaseConnection\DatabaseInterface;
 
 class SQLBuilder implements SQLBuilderInterface
 {
     /**
-     * @var Database
+     * @var DatabaseInterface
      */
     private $db;
 
     /**
-     * @return null|Database
+     * @return null|DatabaseInterface
      */
     public function getDb()
     {
-        if ($this->db instanceof Database) {
-            return $this->db;
-        }
-        return null;
+        return $this->db;
     }
 
     public function __construct(DatabaseInterface $database)
     {
         $this->db = $database;
     }
-
-    public function build(string $sql = null): \TableGenerator {}
 
     /**
      * @param string|null $tableName
@@ -98,5 +91,20 @@ class SQLBuilder implements SQLBuilderInterface
             }
         }
         return implode(' ', $appended);
+    }
+
+    public function select($sql): SQLBuilderInterface
+    {
+        // TODO: Implement select() method.
+    }
+
+    public function where(): SQLBuilderInterface
+    {
+        // TODO: Implement where() method.
+    }
+
+    public function buildCommand($db = null)
+    {
+        // TODO: Implement buildCommand() method.
     }
 }

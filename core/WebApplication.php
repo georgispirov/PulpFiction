@@ -2,6 +2,7 @@
 
 namespace PulpFiction\core;
 
+use ActiveRecord\Config;
 use PulpFiction\core\App\Application;
 use PulpFiction\core\Dispatch\DispatcherInterface;
 use PulpFiction\core\HttpHandler\HttpInterface;
@@ -49,6 +50,19 @@ class WebApplication extends Application
                                 HttpInterface $request,
                                 SessionInterface $session)
     {
+        $dbConfigPath = $_SERVER['DOCUMENT_ROOT'] . '/../DatabaseConnection/dbconfig.ini';
+        $dbConfig = parse_ini_file($dbConfigPath);
+        list($dsn, $user, $password, $db) = array_values($dbConfig);
+        $connectionString = "mysql://$user:$password@localhost/$db";
+
+        Config::initialize(function (Config $config) use ($connectionString) {
+            $modelDirectory = $_SERVER['DOCUMENT_ROOT'] . '/../model';
+            $config->set_model_directory($modelDirectory);
+            $config->set_connections([
+                'development' => $connectionString
+            ]);
+        });
+
         $this->response   = $response;
         $this->template   = $template;
         $this->request    = $request;
