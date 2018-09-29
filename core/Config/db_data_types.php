@@ -6,6 +6,7 @@ return [
     'BLOB'       => 'blob',
     'LONGLONG'   => 'int',
     'LONG'       => 'int',
+    'TINY'       => 'int',
     'SHORT'      => 'int',
     'DATETIME'   => 'datetime',
     'DATE'       => 'date',

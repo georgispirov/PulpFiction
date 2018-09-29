@@ -1,17 +1,19 @@
 <?php
 
 /**
- * @var Model $model
+ * @var ActiveRecord $model
  */
 
+use PulpFiction\core\ActiveRecord\ActiveRecord;
 use PulpFiction\core\FormBuilder\FormBuilder;
-use ActiveRecord\Model;
+use PulpFiction\model\City;
 
 $form = FormBuilder::beginForm();
 
-echo $form->dropDownList($model, [
-    ['id' => 1, 'value' => 'George'],
-    ['id' => 2, 'value' => 'Sp'],
-], '');
-var_dump($model->to_array());
+$cities = City::findAllAsArray();
+
+var_dump($cities);
+
+echo $form->field($model, '')->dropDownList();
+
 FormBuilder::endForm();

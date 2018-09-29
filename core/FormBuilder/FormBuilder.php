@@ -2,8 +2,8 @@
 
 namespace PulpFiction\core\FormBuilder;
 
-use ActiveRecord\Model;
-use PulpFiction\core\FormBuilder\FormFields\DropDownList;
+use PulpFiction\core\ActiveRecord\ActiveRecord;
+use PulpFiction\core\FormBuilder\FormFields\FieldMapper;
 use PulpFiction\core\PulpFiction;
 
 class FormBuilder
@@ -23,28 +23,14 @@ class FormBuilder
         return new self();
     }
 
-    public function textField()
-    {
-        return new TextField();
-    }
-
-    /**
-     * @param Model $model
-     * @param array $items
-     * @param string $selected
-     * @return DropDownList
-     */
-    public function dropDownList(Model $model,
-                                 array $items,
-                                 string $selected = '')
-    {
-        return new DropDownList($items,
-                                $selected,
-                                $model);
-    }
-    
     public static function endForm()
     {
         return '</form>';
+    }
+
+    public function field(ActiveRecord $model,
+                          string $attribute)
+    {
+        return new FieldMapper($model, $attribute);
     }
 }

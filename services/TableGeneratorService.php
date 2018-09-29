@@ -16,7 +16,7 @@ class TableGeneratorService
     {
         $file = $this->createClassFile($dtoName);
         $filePath = $this->generateAppropriateClass($file, $dtoName, $nameSpace,$mappedFields);
-        exec("sudo chmod 775 $filePath");
+        chmod($filePath, 0777);
     }
 
     private function createClassFile(string $dtoName)
@@ -31,13 +31,13 @@ class TableGeneratorService
                                               string $nameSpace,
                                               array $mappedFields)
     {
-        $properties = $this->generateMappedClassFields($mappedFields);
+        $properties = $this->generateMappedClassFields($mappedFields, $dtoName);
         $content = <<<PHP
 <?php
 
 namespace $nameSpace;
 
-class $dtoName extends \ActiveRecord\Model
+class $dtoName extends \PulpFiction\core\ActiveRecord\ActiveRecord
 {
 $properties
 } 
@@ -53,9 +53,11 @@ PHP;
         return $filePath;
     }
 
-    private function generateMappedClassFields(array $mappedFields)
+    private function generateMappedClassFields(array $mappedFields, string $dtoName)
     {
-        $properties = '';
+        $lowerCaseDtoName = strtolower($dtoName);
+        $properties = '    public static $table_name = ' . '\'' . $lowerCaseDtoName . '\'' . ';' . PHP_EOL;
+
         foreach ($mappedFields as $field => $type) {
             $properties .= '
     /**

@@ -30,8 +30,7 @@ class SecurityController extends Controller
 
     public function register()
     {
-        $model = Users::findAllAsArray();
-        var_dump($model);
+        $model = new Users();
         if ($this->getRequest()->isPostRequest()) {
             print_r($_POST);
         }
