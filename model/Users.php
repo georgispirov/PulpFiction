@@ -45,6 +45,5 @@ class Users extends ActiveRecord
     * @var  $gender_id 
     */
     public $gender_id;
-
 } 
 ?>

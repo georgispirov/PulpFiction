@@ -56,8 +56,7 @@ class WebApplication extends Application
         $connectionString = "mysql://$user:$password@localhost/$db";
 
         Config::initialize(function (Config $config) use ($connectionString) {
-            $modelDirectory = $_SERVER['DOCUMENT_ROOT'] . '/../model';
-            $config->set_model_directory($modelDirectory);
+            $config->set_model_directory($this->getModelDirectory());
             $config->set_connections([
                 'development' => $connectionString
             ]);

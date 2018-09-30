@@ -13,6 +13,11 @@ abstract class BaseFormField
     protected $_formName;
 
     /**
+     * @var string $_attribute
+     */
+    protected $_attribute;
+
+    /**
      * @param ActiveRecord $model
      * @return string
      */

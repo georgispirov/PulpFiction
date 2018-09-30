@@ -205,7 +205,7 @@ class Application implements ApplicationInterface
      */
     public function getRootFolder(): string
     {
-        return dirname(__DIR__);
+        return dirname(__DIR__, 2);
     }
 
     /**
@@ -214,5 +214,10 @@ class Application implements ApplicationInterface
     public function getImageSourceFolder(): string
     {
         return $this->getScriptSourceFolder() . DIRECTORY_SEPARATOR . 'images';
+    }
+
+    public function getModelDirectory(): string
+    {
+        return $this->getRootFolder() . '/model';
     }
 }

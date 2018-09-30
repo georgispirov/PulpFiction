@@ -29,8 +29,11 @@ class FieldMapper
     }
 
     public function dropDownList(array $items,
-                                 string $selected)
+                                 string $selected = '')
     {
-        return new DropDownList($items, $selected, $this->_model);
+        return new DropDownList($items,
+                                $selected,
+                                $this->_model,
+                                $this->_attribute);
     }
 }

@@ -6,14 +6,13 @@
 
 use PulpFiction\core\ActiveRecord\ActiveRecord;
 use PulpFiction\core\FormBuilder\FormBuilder;
+use PulpFiction\core\Helpers\ArrayHelper;
 use PulpFiction\model\City;
 
 $form = FormBuilder::beginForm();
 
-$cities = City::findAllAsArray();
+$cities = ArrayHelper::buildHashMapForDropDownList(City::findAllAsArray(), 'id', 'name');
 
-var_dump($cities);
-
-echo $form->field($model, '')->dropDownList();
+echo $form->field($model, 'city_id')->dropDownList($cities);
 
 FormBuilder::endForm();

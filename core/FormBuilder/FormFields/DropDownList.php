@@ -16,13 +16,16 @@ class DropDownList extends BaseFormField
      * @param array $items
      * @param string $selected
      * @param ActiveRecord $model
+     * @param string $attribute
      */
     public function __construct(array $items,
                                 string $selected = '',
-                                ActiveRecord $model)
+                                ActiveRecord $model,
+                                string $attribute)
     {
         $this->_formName = $this->getModelFormPrefix($model);
         $this->_items    = $items;
+        $this->_attribute = $attribute;
     }
 
     /**
@@ -36,7 +39,8 @@ class DropDownList extends BaseFormField
             $items .= $item;
         }
 
-        return "<select>{$items}</select>";
+        $modelFieldAttribute = $this->_formName . '[' . $this->_attribute . ']';
+        return '<select name=' . $modelFieldAttribute . '>' . $items . '</select>';
     }
 
     private function generateSelectTag(array $items,
@@ -44,7 +48,7 @@ class DropDownList extends BaseFormField
     {
         foreach ($items as $item) {
             yield <<<HTML
-            <option id="{$item['id']}" name="{$formName}[{$item['value']}]" value="{$item['value']}">{$item['value']}</option>
+            <option id="{$item['id']}" value="{$item['value']}">{$item['value']}</option>
 HTML;
         }
     }
