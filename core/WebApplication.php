@@ -5,6 +5,8 @@ namespace PulpFiction\core;
 use ActiveRecord\Config;
 use PulpFiction\core\App\Application;
 use PulpFiction\core\Dispatch\DispatcherInterface;
+use PulpFiction\core\EventBuilder\EventHandler;
+use PulpFiction\core\EventBuilder\EventHandlerInterface;
 use PulpFiction\core\HttpHandler\HttpInterface;
 use PulpFiction\core\Response\ResponseInterface;
 use PulpFiction\core\Session\SessionInterface;
@@ -35,6 +37,11 @@ class WebApplication extends Application
     private $session;
 
     /**
+     * @var EventHandler $eventHandler
+     */
+    private $eventHandler;
+
+    /**
      * WebApplication constructor.
      * @param DatabaseInterface $database
      * @param DispatcherInterface $dispatcher
@@ -42,13 +49,15 @@ class WebApplication extends Application
      * @param TemplateInterface $template
      * @param HttpInterface $request
      * @param SessionInterface $session
+     * @param EventHandlerInterface $eventHandler
      */
     public function __construct(DatabaseInterface $database,
                                 DispatcherInterface $dispatcher,
                                 ResponseInterface $response,
                                 TemplateInterface $template,
                                 HttpInterface $request,
-                                SessionInterface $session)
+                                SessionInterface $session,
+                                EventHandlerInterface $eventHandler)
     {
         $dbConfigPath = $_SERVER['DOCUMENT_ROOT'] . '/../DatabaseConnection/dbconfig.ini';
         $dbConfig = parse_ini_file($dbConfigPath);
@@ -66,6 +75,7 @@ class WebApplication extends Application
         $this->template   = $template;
         $this->request    = $request;
         $this->session    = $session;
+        $this->eventHandler = $eventHandler;
         parent::__construct($database, $dispatcher);
     }
 
@@ -100,5 +110,10 @@ class WebApplication extends Application
     public function getSession(): SessionInterface
     {
         return $this->session;
+    }
+
+    public function getEventHandler(): EventHandlerInterface
+    {
+        return $this->eventHandler;
     }
 }

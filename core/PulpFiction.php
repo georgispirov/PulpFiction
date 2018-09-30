@@ -5,6 +5,7 @@ namespace PulpFiction\core;
 use PulpFiction\core\App\Application;
 use PulpFiction\core\App\ApplicationInterface;
 use PulpFiction\core\Dispatch\Dispatcher;
+use PulpFiction\core\EventBuilder\EventHandler;
 use PulpFiction\core\HttpHandler\Request;
 use PulpFiction\core\Response\Response;
 use PulpFiction\core\Session\Session;
@@ -33,7 +34,8 @@ class PulpFiction implements PulpFictionInterface
                                   new Response(),
                                   new Template(),
                                   new Request(),
-                                  new Session()
+                                  new Session(),
+                                  new EventHandler()
                                  );
     }
 }

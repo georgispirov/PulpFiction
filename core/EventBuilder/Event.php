@@ -14,6 +14,8 @@ class Event
      */
     private $_params;
 
+    private $_sender;
+
     /**
      * Event constructor.
      * @param string $name

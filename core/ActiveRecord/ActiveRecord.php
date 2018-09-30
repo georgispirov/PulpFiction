@@ -8,6 +8,10 @@ use PDOStatement;
 
 abstract class ActiveRecord extends Model
 {
+    protected function events()
+    {
+    }
+
     /**
      * @param string $sql
      * @param null $values

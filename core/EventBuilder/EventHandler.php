@@ -4,7 +4,7 @@ namespace PulpFiction\core\EventBuilder;
 
 use Closure;
 
-class EventHandler
+class EventHandler implements EventHandlerInterface
 {
     /**
      * @var array $_events
@@ -40,7 +40,7 @@ class EventHandler
      * @param array $params
      */
     public function trigger(string $event,
-                            $params = [])
+                            array $params = [])
     {
         foreach ($this->_events[$event] as $event => $callback) {
             $e = new Event($event, $params);
@@ -51,5 +51,14 @@ class EventHandler
     public function detachAllEvents()
     {
         $this->_events = [];
+    }
+
+    /**
+     * @param string $event
+     * @return bool
+     */
+    public function hasEvent(string $event): bool
+    {
+        return array_key_exists($event, $this->_events);
     }
 }
